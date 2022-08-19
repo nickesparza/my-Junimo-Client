@@ -3,6 +3,9 @@
 # Summary: 
 Finally, an app that makes resource and crafting management easy in Stardew Valley! This app allows you to manage the inventory of your character(s) and easily see if your inventory meets the requirements for crafting items (and larger projects!) inside Stardew Valley.
 
+# Link to API
+https://github.com/alysvolatile/my-junimo-api
+
 # Team:
 Nick Esparza, Alys Cooper
 
