@@ -6,6 +6,10 @@ Finally, an app that makes resource and crafting management easy in Stardew Vall
 # Link to API
 https://github.com/alysvolatile/my-junimo-api
 
+# Technologies Used
+Django/SQL Backend (Python)
+React Frontend
+
 # Team:
 Nick Esparza, Alys Cooper
 
