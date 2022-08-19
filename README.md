@@ -35,3 +35,14 @@ Nick Esparza, Alys Cooper
 ## Construction Project Blueprints
 * As a user, I want to view all construction project blueprints.
 * As a user, I want to view one construction project blueprint.
+
+# Wireframes
+<img src='./Wireframes/MyJunimoWireframes1.jpg' width ='800px' />
+<img src='./Wireframes/MyJunimoWireframes2.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes3.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes4.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes5.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes6.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes7.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes8.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes9.jpg' width ='800px'/>
