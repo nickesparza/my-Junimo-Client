@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -24,6 +24,26 @@ const App = () => {
     console.log('clear user ran')
     setUser(null)
   }
+
+  useEffect(() => {
+    setUser({
+        email: "Nick",
+        id: 1,
+        characters: [
+            {
+                name: "Chester",
+                farm_type: "maize",
+                inventory: [
+                    {
+                        coal: 5,
+                        wood: 10,
+                        iridium: 12
+                    }
+                ]
+            }
+        ]
+    })
+  }, [])
 
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
