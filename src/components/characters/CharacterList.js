@@ -1,14 +1,15 @@
 import { CharacterPreview } from "./CharacterPreview"
 
 const CharacterList = (props) => {
-    const characters = props.characters
+    const {characters, setCharacter} = props
 
     let charPreviews
     charPreviews = characters.map((character, index) => {
-        return <CharacterPreview key={index} character={character}/>
+        return <CharacterPreview
+                    key={index}
+                    character={character}
+                    setCharacter={setCharacter}/>
     })
-
-    console.log('this is what is inside charPreviews', charPreviews)
 
     return (
         <div style={{border: "2px solid black", display: "inline-block"}}>
