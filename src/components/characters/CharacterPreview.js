@@ -6,6 +6,7 @@ export const CharacterPreview = (props) => {
         border: "2px solid black",
         margin: "5px"
     }
+    
     return (
         <div
             style={divStyle}
