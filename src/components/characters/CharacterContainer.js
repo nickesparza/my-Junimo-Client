@@ -13,7 +13,7 @@ const CharacterContainer = (props) => {
     const user = props.user
 
     useEffect(() => {
-        console.log('useEffect ran in the CharacterContainer')
+        // console.log('useEffect ran in the CharacterContainer')
         // there will be a fetch here to get all characters from user
         setCharacters(user.characters)
     }, [updated])
@@ -28,19 +28,22 @@ const CharacterContainer = (props) => {
                     character={character}
                     setCharacter={setCharacter}
                     setMaterialId={setMaterialId}
+                    setRecipeId={setRecipeId}
                     setRecipeListShow={setRecipeListShow}
                 />
                 :
                 null
             }
             {
-                materialId || recipeId || recipeListShow
+                character && materialId || recipeId || recipeListShow
                 ?
                 <InfoContainer
-                    material={materialId}
-                    recipe={recipeId}
+                    materialId={materialId}
+                    setMaterialId={setMaterialId}
+                    recipeId={recipeId}
                     setRecipeId={setRecipeId}
                     recipeListShow={recipeListShow}
+                    setRecipeListShow={setRecipeListShow}
                 />
                 :
                 null

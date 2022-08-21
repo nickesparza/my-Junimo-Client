@@ -1,11 +1,11 @@
 import { MaterialPreview } from "./MaterialPreview"
 
 export const Inventory = (props) => {
-    const {inventory, setMaterialId} = props
+    const {inventory, setMaterialId, setRecipeListShow, setRecipeId} = props
 
     let materialPreviews
     materialPreviews = inventory.map((material, index) => {
-        return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId}/>
+        return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
     })
 
     return (

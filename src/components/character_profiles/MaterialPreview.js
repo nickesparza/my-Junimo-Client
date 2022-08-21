@@ -1,11 +1,12 @@
 
 export const MaterialPreview = (props) => {
-    const {material, setMaterialId} = props
+    const {material, setMaterialId, setRecipeListShow, setRecipeId} = props
     return (
         <div
             style={{border: "2px solid black", display: "inline-block"}}
             onClick={() => {
-                console.log(material.name)
+                setRecipeId(null)
+                setRecipeListShow(false)
                 setMaterialId(material.id)
             }}
         >
