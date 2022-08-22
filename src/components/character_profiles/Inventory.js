@@ -10,8 +10,10 @@ export const Inventory = (props) => {
 
     return (
         <div style={{border: "2px solid black"}}>
-            <p>This is the inventory.</p>
-            {materialPreviews}
+            <h3 style={{textAlign: "center"}}>Inventory</h3>
+            <div style={{display: "flex", justifyContent: "space-evenly"}}>
+                {materialPreviews}
+            </div>
         </div>
     )
 }

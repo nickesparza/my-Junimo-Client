@@ -1,3 +1,4 @@
+import { Container, Row, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import { ProfileContainer } from "../character_profiles/ProfileContainer"
 import CharacterList from "./CharacterList"
@@ -29,45 +30,58 @@ const CharacterContainer = (props) => {
         ])
     }, [updated])
 
+    const divStyle = {
+        border: "2px solid black",
+        padding: "10px"
+    }
+
     return (
-        <div style={{border: "2px solid black", alignItems: "stretch", display: "flex"}}>
-            <CharacterList
-                characters={characters}
-                setCharacter={setCharacter}
-                setMaterialId={setMaterialId}
-                setRecipeId={setRecipeId}
-                setRecipeListShow={setRecipeListShow}
-            />
-            {
-                character
-                ?
-                <ProfileContainer
-                    character={character}
-                    setCharacter={setCharacter}
-                    setMaterialId={setMaterialId}
-                    setRecipeId={setRecipeId}
-                    setRecipeListShow={setRecipeListShow}
-                />
-                :
-                null
-            }
-            {
-                character && materialId || recipeId || recipeListShow
-                ?
-                <InfoContainer
-                    character={character}
-                    materialId={materialId}
-                    setMaterialId={setMaterialId}
-                    recipeId={recipeId}
-                    setRecipeId={setRecipeId}
-                    recipeList={recipeList}
-                    recipeListShow={recipeListShow}
-                    setRecipeListShow={setRecipeListShow}
-                />
-                :
-                null
-            }
-        </div>
+        <Container fluid style={{alignItems: "stretch"}}>
+            <Row>
+                <Col xs={2} style={divStyle}>
+                    <CharacterList
+                        characters={characters}
+                        setCharacter={setCharacter}
+                        setMaterialId={setMaterialId}
+                        setRecipeId={setRecipeId}
+                        setRecipeListShow={setRecipeListShow}
+                    />
+                </Col>
+                {
+                    character
+                    ?
+                    <Col xs={6} style={divStyle}>
+                        <ProfileContainer
+                            character={character}
+                            setCharacter={setCharacter}
+                            setMaterialId={setMaterialId}
+                            setRecipeId={setRecipeId}
+                            setRecipeListShow={setRecipeListShow}
+                        />
+                    </Col>
+                    :
+                    null
+                }
+                {
+                    character && materialId || recipeId || recipeListShow
+                    ?
+                    <Col style={divStyle}>
+                        <InfoContainer
+                            character={character}
+                            materialId={materialId}
+                            setMaterialId={setMaterialId}
+                            recipeId={recipeId}
+                            setRecipeId={setRecipeId}
+                            recipeList={recipeList}
+                            recipeListShow={recipeListShow}
+                            setRecipeListShow={setRecipeListShow}
+                        />
+                    </Col>
+                    :
+                    null
+                }
+            </Row>
+        </Container>
     )
 }
 

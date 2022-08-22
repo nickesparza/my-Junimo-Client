@@ -13,6 +13,15 @@ const RecipeView = (props) => {
         return <p key={index}>{ingredient.name}: {ingredient.amount}</p>
     })
 
+    let isCraftable = true
+    // recipe.ingredients.forEach(ingredient => {
+    //     if (inventory.includes(ingredient)) {
+    //         isCraftable = true
+    //     } else {
+    //         return isCraftable = false
+    //     }
+    // })
+
     console.log(recipeReqs)
     return (
         <div style={{border: "2px solid black", display: "inline-block"}}
@@ -32,7 +41,7 @@ const RecipeView = (props) => {
                 {currentInv}
             </div>
             {
-                
+                isCraftable ? <p>You can craft this recipe.</p> : <p>You cannot craft this recipe.</p>
             }
         </div>
     )

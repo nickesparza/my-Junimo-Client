@@ -5,11 +5,13 @@ export const ProfileContainer = (props) => {
 
     const divStyle = {
         border: "2px solid black",
+        width: "100%",
+        height: "100%",
         display: "inline-block"
     }
 
     return (
-        <div style={divStyle}>
+        <div className="ui-container" style={divStyle}>
             <p>This is the Profile Container.</p>
             <CharacterDetails
                 character={character}

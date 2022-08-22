@@ -16,7 +16,7 @@ const CharacterList = (props) => {
     })
 
     return (
-        <div style={{border: "2px solid black", display: "inline-block"}}>
+        <div className="ui-container" style={{border: "2px solid black", display: "inline-block", width: "100%", height: "100%"}}>
             <p>This is the Character List component.</p>
             {charPreviews}
         </div>

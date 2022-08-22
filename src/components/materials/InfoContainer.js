@@ -35,9 +35,16 @@ export const InfoContainer = (props) => {
         console.log(`RecipeId: ${recipeId}\nMaterialId: ${materialId}\nmaterial: ${material}\nrecipeListShow: ${recipeListShow}`)
     }, [recipeListShow, materialId, recipeId])
 
+    const divStyle = {
+        border: "2px solid black",
+        display: "inline-block",
+        width: "100%",
+        height: "100%"
+    }
+
     if (material && !recipeId && !recipeListShow) {
         return (
-            <div style={{border: "2px solid black", display: "inline-block"}}>
+            <div className="ui-container" style={divStyle}>
                 {
                     material
                     ?
@@ -52,7 +59,7 @@ export const InfoContainer = (props) => {
         )
     } else if (recipeId && !materialId && !recipeListShow) {
         return (
-            <div style={{border: "2px solid black", display: "inline-block"}}>
+            <div className="ui-container" style={divStyle}>
             {
                 recipe
                 ?
@@ -64,7 +71,7 @@ export const InfoContainer = (props) => {
         )
     } else if (recipeListShow && !recipeId) {
         return (
-            <div style={{border: "2px solid black", display: "inline-block"}}>
+            <div className="ui-container" style={divStyle}>
             <RecipeList recipes={recipeList} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
