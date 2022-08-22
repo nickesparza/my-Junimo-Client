@@ -1,4 +1,5 @@
 import { CharacterDetails } from "./CharacterDetails"
+import { Container, Row, Col } from "react-bootstrap"
 
 export const ProfileContainer = (props) => {
     const { character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow } = props
@@ -11,8 +12,22 @@ export const ProfileContainer = (props) => {
     }
 
     return (
-        <div className="ui-container" style={divStyle}>
-            <h4>{character.name}</h4>
+        <Container fluid className="ui-container" style={divStyle}>
+            <Row>
+                <Col>
+                    <h4>{character.name}</h4>
+                </Col>
+                <Col style={{alignSelf: "center", textAlign: "end"}}>
+                    <button onClick={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(prev => !prev)
+                    }}
+                    >
+                    Show Recipes
+                    </button>
+                </Col>
+            </Row>
             <CharacterDetails
                 character={character}
                 setCharacter={setCharacter}
@@ -20,7 +35,7 @@ export const ProfileContainer = (props) => {
                 setRecipeId={setRecipeId}
                 setRecipeListShow={setRecipeListShow}
             />
-        </div>
+        </Container>
     )
 }
 

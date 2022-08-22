@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     /* background-image: url('https://www.gamebyte.com/wp-content/uploads/2020/11/ddtbzeomt3y01.jpg') !important; */
     /* border: 2px solid black; */
@@ -25,4 +29,8 @@ code {
 
 h2, h3, h4 {
     text-align: center;
+}
+
+#root {
+    height: 100% !important;
 }

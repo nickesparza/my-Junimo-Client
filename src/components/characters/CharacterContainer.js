@@ -36,8 +36,8 @@ const CharacterContainer = (props) => {
     }
 
     return (
-        <Container fluid style={{alignItems: "stretch"}}>
-            <Row>
+        <Container fluid style={{alignItems: "stretch", height: "50%"}}>
+            <Row style={{height: "100%"}}>
                 <Col md={3} style={divStyle}>
                     <CharacterList
                         characters={characters}
