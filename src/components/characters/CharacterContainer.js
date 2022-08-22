@@ -8,6 +8,7 @@ const CharacterContainer = (props) => {
     const [character, setCharacter] = useState(null)
     const [materialId, setMaterialId] = useState(null)
     const [recipeId, setRecipeId] = useState(null)
+    const [recipeList, setRecipeList] = useState(null)
     const [recipeListShow, setRecipeListShow] = useState(false)
     const [updated, setUpdated] = useState(false)
     const user = props.user
@@ -16,6 +17,16 @@ const CharacterContainer = (props) => {
         // console.log('useEffect ran in the CharacterContainer')
         // there will be a fetch here to get all characters from user
         setCharacters(user.characters)
+        setRecipeList([
+            {
+                name: "gate",
+                id: 1,
+                description: "Allows you to pass through a fence.",
+                ingredients: [
+                    {name: "wood", amount: 10}
+                ],
+            }
+        ])
     }, [updated])
 
     return (
@@ -49,6 +60,7 @@ const CharacterContainer = (props) => {
                     setMaterialId={setMaterialId}
                     recipeId={recipeId}
                     setRecipeId={setRecipeId}
+                    recipeList={recipeList}
                     recipeListShow={recipeListShow}
                     setRecipeListShow={setRecipeListShow}
                 />

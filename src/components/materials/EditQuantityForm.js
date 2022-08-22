@@ -12,8 +12,9 @@ const EditQuantityForm = (props) => {
                     <Form.Control
                         type='text'
                         name='amount'
-                        value={inventory[materialIndex].amount}
+                        defaultValue={inventory[materialIndex].amount}
                         placeholder='Enter name'
+                        onChange={() => {console.log('a change was made')}}
                     />
                 </Form.Group>
                 <button type='submit'>Edit Amount</button>
