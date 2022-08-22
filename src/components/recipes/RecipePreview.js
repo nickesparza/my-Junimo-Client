@@ -2,7 +2,7 @@
 const RecipePreview = (props) => {
     const {recipe, setMaterialId, setRecipeId, setRecipeListShow} = props
     return (
-        <div style={{border: "2px solid black"}}
+        <div
         onClick={() => {
                 setRecipeId(recipe.id)
                 setMaterialId(null)

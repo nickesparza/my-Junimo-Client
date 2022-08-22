@@ -4,8 +4,7 @@ import { CharacterDisplay } from "./CharacterDisplay"
 export const CharacterDetails = (props) => {
     const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
     return (
-        <div style={{border: "2px solid black"}}>
-            This is the CharacterDetails component.
+        <div>
             <CharacterDisplay character={character} setCharacter={setCharacter} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             {/* <EditCharacterModal/> */}
             <Inventory inventory={character.inventory} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>

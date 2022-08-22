@@ -31,14 +31,14 @@ const CharacterContainer = (props) => {
     }, [updated])
 
     const divStyle = {
-        border: "2px solid black",
+        // border: "2px solid black",
         padding: "10px"
     }
 
     return (
         <Container fluid style={{alignItems: "stretch"}}>
             <Row>
-                <Col xs={2} style={divStyle}>
+                <Col md={3} style={divStyle}>
                     <CharacterList
                         characters={characters}
                         setCharacter={setCharacter}
@@ -50,7 +50,7 @@ const CharacterContainer = (props) => {
                 {
                     character
                     ?
-                    <Col xs={6} style={divStyle}>
+                    <Col md={5} style={divStyle}>
                         <ProfileContainer
                             character={character}
                             setCharacter={setCharacter}
@@ -65,7 +65,7 @@ const CharacterContainer = (props) => {
                 {
                     character && materialId || recipeId || recipeListShow
                     ?
-                    <Col style={divStyle}>
+                    <Col md={4} style={divStyle}>
                         <InfoContainer
                             character={character}
                             materialId={materialId}

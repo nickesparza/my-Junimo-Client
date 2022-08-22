@@ -24,7 +24,7 @@ const RecipeView = (props) => {
 
     console.log(recipeReqs)
     return (
-        <div style={{border: "2px solid black", display: "inline-block"}}
+        <div style={{margin:"5px", paddingBottom: "15%"}}
         onClick={() => {
             setRecipeId(null)
             setMaterialId(null)

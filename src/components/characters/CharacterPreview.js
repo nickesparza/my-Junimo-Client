@@ -3,7 +3,7 @@ export const CharacterPreview = (props) => {
     const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     const divStyle = {
-        border: "2px solid black",
+        border: "4px solid rgb(229,120,61)",
         margin: "5px"
     }
     

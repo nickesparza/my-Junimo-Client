@@ -1,5 +1,7 @@
 body {
-    background-image: url('https://www.gamebyte.com/wp-content/uploads/2020/11/ddtbzeomt3y01.jpg') !important;
+    /* background-image: url('https://www.gamebyte.com/wp-content/uploads/2020/11/ddtbzeomt3y01.jpg') !important; */
+    /* border: 2px solid black; */
+    background-color: rgb(132,170,217) !important;
     margin: 0;
     height: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,5 +20,9 @@ code {
 }
 
 .ui-container {
-    background-color: rgb(229,120,61);
+    background-color: rgb(255,213,139);
+}
+
+h2, h3, h4 {
+    text-align: center;
 }

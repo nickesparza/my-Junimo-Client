@@ -15,9 +15,15 @@ const CharacterList = (props) => {
                     />
     })
 
+    const divStyle = {
+        width: "100%",
+        height: "100%",
+        border: "4px solid rgb(229,120,61)"
+    }
+
     return (
-        <div className="ui-container" style={{border: "2px solid black", display: "inline-block", width: "100%", height: "100%"}}>
-            <p>This is the Character List component.</p>
+        <div className="ui-container" style={divStyle}>
+            <h4>Characters</h4>
             {charPreviews}
         </div>
     )

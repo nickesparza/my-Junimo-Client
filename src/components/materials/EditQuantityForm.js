@@ -5,7 +5,7 @@ const EditQuantityForm = (props) => {
     const inventory = props.character.inventory
     const materialIndex = props.materialIndex
     return (
-        <div style={{border: "2px solid black"}}>
+        <div>
             <Form>
                 <Form.Group>
                     <Form.Label htmlFor='amount'>Quantity</Form.Label>

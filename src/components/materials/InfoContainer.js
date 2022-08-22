@@ -36,10 +36,9 @@ export const InfoContainer = (props) => {
     }, [recipeListShow, materialId, recipeId])
 
     const divStyle = {
-        border: "2px solid black",
+        border: "4px solid rgb(229,120,61)",
         display: "inline-block",
-        width: "100%",
-        height: "100%"
+        width: "100%"
     }
 
     if (material && !recipeId && !recipeListShow) {

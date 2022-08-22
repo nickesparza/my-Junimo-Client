@@ -5,7 +5,7 @@ const MaterialView = (props) => {
     console.log(material)
 
     return (
-        <div style={{border: "2px solid black"}}>
+        <div>
             <div>{material.name}</div>
             <div>{material.description}</div>
         </div>

@@ -11,6 +11,9 @@ const linkStyle = {
 }
 const authenticatedOptions = (
 	<>
+        <Nav.Link>
+            <Link to='/' style={linkStyle}>Create</Link>
+        </Nav.Link>
 		<Nav.Link>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
@@ -18,7 +21,7 @@ const authenticatedOptions = (
 		</Nav.Link>
 		<Nav.Link>
 			<Link to='sign-out' style={linkStyle}>
-				Sign Out
+				Exit
 			</Link>
 		</Nav.Link>
 	</>
@@ -27,10 +30,10 @@ const authenticatedOptions = (
 const unauthenticatedOptions = (
 	<>
         <Nav.Link>
-		    <Link to='sign-up' style={linkStyle}>Sign Up</Link>
+		    <Link to='sign-up' style={linkStyle}>New</Link>
         </Nav.Link>
         <Nav.Link>
-		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+		    <Link to='sign-in' style={linkStyle}>Load</Link>
         </Nav.Link>
 	</>
 )
@@ -46,11 +49,17 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar fixed='bottom' bg='none' variant='light' expand='md'>
-        <Container style={{border: "2px solid black", width: "fit-content"}}>
-            <Navbar.Brand className='mx-3'>
+	<Navbar fixed='bottom' bg='none' variant='light' expand='md' >
+        <Container style={{width: "fit-content", backgroundColor: "rgb(132,170,217)"}}>
+            <Navbar.Brand>
                 <Link to='/' style={linkStyle}>
-                    My Junimo
+                    <img
+                    alt=""
+                    src="https://preview.redd.it/1zyhrw4ygub11.png?auto=webp&s=908a41542c3ded0e00a7084c763835bbbe27536b"
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top"
+                    />
                 </Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />

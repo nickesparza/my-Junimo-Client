@@ -8,8 +8,9 @@ export const Inventory = (props) => {
         return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
     })
 
+    
     return (
-        <div style={{border: "2px solid black"}}>
+        <div style={{border: "4px solid rgb(229,120,61)"}}>
             <h3 style={{textAlign: "center"}}>Inventory</h3>
             <div style={{display: "flex", justifyContent: "space-evenly"}}>
                 {materialPreviews}
