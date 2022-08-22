@@ -34,18 +34,18 @@ const App = () => {
                 name: "Chester",
                 farm_type: "maize",
                 inventory: [
-                    {name: "coal", amount: 5, id: 1},
-                    {name: "wood", amount: 10, id: 2},
-                    {name: "iridium", amount: 12, id: 4}
+                    {name: "coal", description: "black and burnt", amount: 5, id: 1},
+                    {name: "wood", description: "some wood", amount: 10, id: 2},
+                    {name: "iridium", description: "who even knows, from space maybe?", amount: 12, id: 4}
                 ]
             },
             {
                 name: "Phoebe",
                 farm_type: "beans",
                 inventory: [
-                    {name: "coal", amount: 10, id: 1},
-                    {name: "wood", amount: 500, id: 2},
-                    {name: "hardwood", amount: 25, id: 3}
+                    {name: "coal", description: "black and burnt", amount: 10, id: 1},
+                    {name: "wood", description: "some wood", amount: 500, id: 2},
+                    {name: "hardwood", description: "even harder wood", amount: 25, id: 3}
                 ]
             }
         ]

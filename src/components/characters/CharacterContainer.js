@@ -20,7 +20,13 @@ const CharacterContainer = (props) => {
 
     return (
         <div style={{border: "2px solid black", alignItems: "stretch", display: "flex"}}>
-            <CharacterList characters={characters} setCharacter={setCharacter}/>
+            <CharacterList
+                characters={characters}
+                setCharacter={setCharacter}
+                setMaterialId={setMaterialId}
+                setRecipeId={setRecipeId}
+                setRecipeListShow={setRecipeListShow}
+            />
             {
                 character
                 ?
@@ -38,6 +44,7 @@ const CharacterContainer = (props) => {
                 character && materialId || recipeId || recipeListShow
                 ?
                 <InfoContainer
+                    character={character}
                     materialId={materialId}
                     setMaterialId={setMaterialId}
                     recipeId={recipeId}
