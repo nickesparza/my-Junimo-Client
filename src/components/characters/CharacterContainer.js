@@ -15,9 +15,6 @@ const CharacterContainer = (props) => {
     const user = props.user
 
     useEffect(() => {
-        // console.log('useEffect ran in the CharacterContainer')
-        // there will be a fetch here to get all characters from user
-        setCharacters(user.characters)
         setRecipeList([
             {
                 name: "gate",
@@ -28,6 +25,12 @@ const CharacterContainer = (props) => {
                 ],
             }
         ])
+    }, [])
+
+    useEffect(() => {
+        // console.log('useEffect ran in the CharacterContainer')
+        // there will be a fetch here to get all characters from user
+        setCharacters(user.characters)
     }, [updated])
 
     const divStyle = {
@@ -36,7 +39,7 @@ const CharacterContainer = (props) => {
     }
 
     return (
-        <Container fluid style={{alignItems: "stretch", height: "50%"}}>
+        <Container fluid style={{alignItems: "stretch"}}>
             <Row style={{height: "100%"}}>
                 <Col md={3} style={divStyle}>
                     <CharacterList
