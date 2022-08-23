@@ -1,6 +1,6 @@
 import { CharacterPreview } from "./CharacterPreview"
 
-const CharacterList = (props) => {
+const CharacterContainer = (props) => {
     const {characters, setCharacter, selectCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     let charPreviews
@@ -30,4 +30,4 @@ const CharacterList = (props) => {
     )
 }
 
-export default CharacterList
+export default CharacterContainer

@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
 import { ProfileContainer } from "../character_profiles/ProfileContainer"
-import CharacterList from "./CharacterList"
+import CharacterContainer from "./CharacterContainer"
 import { InfoContainer } from "../materials/InfoContainer"
 import { getAllCharacters, getOneCharacter } from "../../api/characters"
 
@@ -53,10 +53,10 @@ const UserHome = (props) => {
     }
 
     return (
-        <Container fluid style={{alignItems: "stretch"}}>
-            <Row style={{height: "100%"}}>
+        <Container fluid style={{alignItems: "stretch", height: "85%"}}>
+            <Row>
                 <Col md={3} style={divStyle}>
-                    <CharacterList
+                    <CharacterContainer
                         characters={characters}
                         setCharacter={setCharacter}
                         selectCharacter={selectCharacter}
