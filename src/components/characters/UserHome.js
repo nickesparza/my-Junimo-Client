@@ -25,6 +25,14 @@ const UserHome = (props) => {
                 ingredients: [
                     {name: "wood", amount: 10}
                 ],
+            },
+            {
+                name: "stone wall",
+                id: 2,
+                description: "Last longer than a wooden fence.",
+                ingredients: [
+                    {name: "stone", amount: 15}
+                ]
             }
         ])
     }, [])

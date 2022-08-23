@@ -12,7 +12,7 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
         <Nav.Link>
-            <Link to='/' style={linkStyle}>Create</Link>
+            <Link to='/create-character' style={linkStyle}>Create</Link>
         </Nav.Link>
 		<Nav.Link>
 			<Link to='change-password' style={linkStyle}>

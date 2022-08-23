@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { CharacterPreview } from "./CharacterPreview"
 
 const CharacterContainer = (props) => {
@@ -26,6 +27,9 @@ const CharacterContainer = (props) => {
         <div className="ui-container" style={divStyle}>
             <h4>Characters</h4>
             {charPreviews}
+            <div>
+                <Link to="/create-character">Add Character</Link>
+            </div>
         </div>
     )
 }
