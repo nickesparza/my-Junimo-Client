@@ -9,7 +9,4 @@ const UserHome = (props) => {
 
 }
 
-
-
-
 export default UserHome

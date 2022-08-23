@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { ProfileContainer } from "../character_profiles/ProfileContainer"
 import CharacterList from "./CharacterList"
 import { InfoContainer } from "../materials/InfoContainer"
+import { getAllCharacters, getOneCharacter } from "../../api/characters"
 
 const CharacterContainer = (props) => {
     const [characters, setCharacters] = useState([])
@@ -30,8 +31,20 @@ const CharacterContainer = (props) => {
     useEffect(() => {
         // console.log('useEffect ran in the CharacterContainer')
         // there will be a fetch here to get all characters from user
+        getAllCharacters(user)
+            // .then(res => {
+            //     setCharacters(res.data.characters)
+            // })
+        // THIS IS A PLACEHOLDER STATE MOD UNTIL REAL DATA IS COMING IN
         setCharacters(user.characters)
     }, [updated])
+
+    const selectCharacter = (id) => {
+        getOneCharacter(user, id)
+            // .then (res => {
+            //     setCharacter(res.data.character)
+            // })
+    }
 
     const divStyle = {
         // border: "2px solid black",
@@ -45,6 +58,7 @@ const CharacterContainer = (props) => {
                     <CharacterList
                         characters={characters}
                         setCharacter={setCharacter}
+                        selectCharacter={selectCharacter}
                         setMaterialId={setMaterialId}
                         setRecipeId={setRecipeId}
                         setRecipeListShow={setRecipeListShow}

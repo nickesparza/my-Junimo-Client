@@ -1,7 +1,7 @@
 import { CharacterPreview } from "./CharacterPreview"
 
 const CharacterList = (props) => {
-    const {characters, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {characters, setCharacter, selectCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     let charPreviews
     charPreviews = characters.map((character, index) => {
@@ -9,6 +9,7 @@ const CharacterList = (props) => {
                     key={index}
                     character={character}
                     setCharacter={setCharacter}
+                    selectCharacter={selectCharacter}
                     setMaterialId={setMaterialId}
                     setRecipeId={setRecipeId}
                     setRecipeListShow={setRecipeListShow}

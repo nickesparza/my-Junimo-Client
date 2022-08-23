@@ -1,6 +1,6 @@
 
 export const CharacterPreview = (props) => {
-    const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {character, setCharacter, selectCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     const divStyle = {
         border: "4px solid rgb(229,120,61)",
@@ -15,11 +15,9 @@ export const CharacterPreview = (props) => {
                 setMaterialId(null)
                 setRecipeId(null)
                 setRecipeListShow(false)
-                if (character) {
-                    setCharacter(character)
-                } else {
-                    setCharacter(null)
-                }
+                selectCharacter(character.id)
+                // this is a temporary state mod to be deleted once backend is up and running
+                setCharacter(character)
                 }}>
             {character.name}
         </div>

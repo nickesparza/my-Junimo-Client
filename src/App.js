@@ -32,6 +32,7 @@ const App = () => {
         characters: [
             {
                 name: "Chester",
+                id: 1,
                 farm_type: "maize",
                 inventory: [
                     {name: "coal", description: "black and burnt", amount: 5, id: 1},
@@ -41,6 +42,7 @@ const App = () => {
             },
             {
                 name: "Phoebe",
+                id: 2,
                 farm_type: "beans",
                 inventory: [
                     {name: "coal", description: "black and burnt", amount: 10, id: 1},
