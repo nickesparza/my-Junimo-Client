@@ -2,7 +2,7 @@
 
 const MaterialView = (props) => {
     const material = props.material
-    console.log(material)
+    console.log('material in MaterialView', material)
 
     return (
         <div>

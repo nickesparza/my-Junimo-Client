@@ -7,7 +7,7 @@ export const CharacterDetails = (props) => {
         <div>
             <CharacterDisplay character={character} setCharacter={setCharacter} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             {/* <EditCharacterModal/> */}
-            <Inventory inventory={character.inventory} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+            <Inventory character={character} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             {/* <button onClick={() => {
                 setMaterialId(null)
                 setRecipeId(null)

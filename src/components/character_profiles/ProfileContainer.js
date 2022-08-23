@@ -7,8 +7,7 @@ export const ProfileContainer = (props) => {
     const divStyle = {
         // border: "2px solid black",
         width: "100%",
-        height: "100%",
-        border: "4px solid rgb(229,120,61)"
+        height: "100%"
     }
 
     return (

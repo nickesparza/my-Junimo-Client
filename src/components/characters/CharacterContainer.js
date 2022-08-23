@@ -20,7 +20,6 @@ const CharacterContainer = (props) => {
     const divStyle = {
         width: "100%",
         height: "100%",
-        border: "4px solid rgb(229,120,61)"
     }
 
     return (

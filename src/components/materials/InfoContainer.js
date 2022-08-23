@@ -10,18 +10,16 @@ export const InfoContainer = (props) => {
     // const [recipeList, setRecipeList] = useState(null)
     const [recipe, setRecipe] = useState(null)
 
-    console.log('InfoContainer has loaded')
+    // console.log('InfoContainer has loaded')
     // console.log('props in InfoContainer', props)
     useEffect(() => {
         console.log('useEffect has run in InfoContainer')
         if (materialId) {
             console.log('pretend this is a material fetch')
             setMaterial(character.inventory.find(material => material.id === materialId))
-            console.log('this is material', material)
         } else if (recipeId) {
             console.log('pretend this is a recipe fetch')
             setRecipe(recipeList.find(recipe => recipe.id === recipeId))
-            console.log('this is the recipe: ', recipe)
         } else if (recipeListShow) {
             console.log('pretend this is fetching all recipes')
         } else {
@@ -32,11 +30,9 @@ export const InfoContainer = (props) => {
             material: ${material}
             recipe: ${recipe}`)
         }
-        console.log(`RecipeId: ${recipeId}\nMaterialId: ${materialId}\nmaterial: ${material}\nrecipeListShow: ${recipeListShow}`)
     }, [recipeListShow, materialId, recipeId])
 
     const divStyle = {
-        border: "4px solid rgb(229,120,61)",
         width: "100%",
         height: "100%"
     }

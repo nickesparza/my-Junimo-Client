@@ -1,5 +1,4 @@
 import {Form} from 'react-bootstrap'
-import { MaterialPreview } from '../character_profiles/MaterialPreview'
 
 const EditQuantityForm = (props) => {
     const inventory = props.character.inventory

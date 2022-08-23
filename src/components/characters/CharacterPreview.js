@@ -4,11 +4,13 @@ export const CharacterPreview = (props) => {
 
     const divStyle = {
         border: "4px solid rgb(229,120,61)",
-        margin: "5px"
+        backgroundColor: "rgb(255,213,139)",
+        margin: "5px",
+        padding: "2px"
     }
     
     return (
-        <div
+        <div className="selector"
             style={divStyle}
             onClick={() => {
                 console.log('this is the character', character)
@@ -19,7 +21,7 @@ export const CharacterPreview = (props) => {
                 // this is a temporary state mod to be deleted once backend is up and running
                 setCharacter(character)
                 }}>
-            {character.name}
+            <h5 style={{margin: "0"}}>{character.name}</h5>
         </div>
     )
 }
