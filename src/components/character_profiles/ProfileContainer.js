@@ -27,13 +27,25 @@ export const ProfileContainer = (props) => {
                     </button>
                 </Col>
             </Row>
-            <CharacterDetails
-                character={character}
-                setCharacter={setCharacter}
-                setMaterialId={setMaterialId}
-                setRecipeId={setRecipeId}
-                setRecipeListShow={setRecipeListShow}
-            />
+            <Row>
+                <CharacterDetails
+                    character={character}
+                    setCharacter={setCharacter}
+                    setMaterialId={setMaterialId}
+                    setRecipeId={setRecipeId}
+                    setRecipeListShow={setRecipeListShow}
+                />
+            </Row>
+            <Row className="py-2" style={{textAlign: "center"}}>
+                <button onClick={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(prev => !prev)
+                    }}
+                    >
+                    Show Recipes
+                </button>
+            </Row>
         </Container>
     )
 }
