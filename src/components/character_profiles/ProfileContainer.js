@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Button } from "react-bootstrap"
 import EditCharacterModal from "./EditCharacterModal"
 import { updateCharacter, deleteCharacter, getOneCharacter } from "../../api/characters"
 
@@ -30,7 +30,12 @@ export const ProfileContainer = (props) => {
     const removeCharacter = () => {
         deleteCharacter(user, character.id)
             .then(setCharUpdated(prev => !prev))
-            .then(setCharacterId(null))
+            .then(() => {
+                setCharacterId(null)
+                setMaterialId(null)
+                setRecipeId(null)
+                setRecipeListShow(false)
+            })
             .catch(err => console.log(err))
     }
 
@@ -65,14 +70,13 @@ export const ProfileContainer = (props) => {
                     setRecipeListShow={setRecipeListShow}
                 />
             </Row>
-            <Row md="auto" className="py-2" style={{justifyContent: "center"}}>
-                <button onClick={() => {
-                    setEditModalShow(true)
-                    }}
-                >
-                Edit
-                </button>
-                <button onClick={() => removeCharacter()}>Delete</button>
+            <Row fluid md="auto" className="py-2" style={{justifyContent: "center"}}>
+                <Col fluid>
+                <Button variant="info" onClick={() => setEditModalShow(true)}>Edit</Button>
+                </Col>
+                <Col>
+                <Button variant="danger" onClick={() => removeCharacter()}>Delete</Button>
+                </Col>
             </Row>
         </Container>
         <EditCharacterModal
