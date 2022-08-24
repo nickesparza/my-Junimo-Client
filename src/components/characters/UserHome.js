@@ -6,13 +6,12 @@ import { InfoContainer } from "../materials/InfoContainer"
 import { getAllCharacters, getOneCharacter } from "../../api/characters"
 
 const UserHome = (props) => {
-    const [characters, setCharacters] = useState([])
-    const [character, setCharacter] = useState(null)
+    const [characterId, setCharacterId] = useState(null)
     const [materialId, setMaterialId] = useState(null)
     const [recipeId, setRecipeId] = useState(null)
     const [recipeList, setRecipeList] = useState(null)
     const [recipeListShow, setRecipeListShow] = useState(false)
-    const [updated, setUpdated] = useState(false)
+    const [invUpdated, setInvUpdated] = useState(false)
     const user = props.user
 
     useEffect(() => {
@@ -37,24 +36,6 @@ const UserHome = (props) => {
         ])
     }, [])
 
-    useEffect(() => {
-        // console.log('useEffect ran in the CharacterContainer')
-        // there will be a fetch here to get all characters from user
-        getAllCharacters(user)
-            // .then(res => {
-            //     setCharacters(res.data.characters)
-            // })
-        // THIS IS A PLACEHOLDER STATE MOD UNTIL REAL DATA IS COMING IN
-        setCharacters(user.characters)
-    }, [updated])
-
-    const selectCharacter = (id) => {
-        getOneCharacter(user, id)
-            // .then (res => {
-            //     setCharacter(res.data.character)
-            // })
-    }
-
     const divStyle = {
         // border: "2px solid black",
         padding: "10px"
@@ -65,22 +46,20 @@ const UserHome = (props) => {
             <Row>
                 <Col md={3} style={divStyle}>
                     <CharacterContainer
-                        characters={characters}
-                        setCharacter={setCharacter}
-                        selectCharacter={selectCharacter}
+                        user={user}
+                        setCharacterId={setCharacterId}
                         setMaterialId={setMaterialId}
                         setRecipeId={setRecipeId}
                         setRecipeListShow={setRecipeListShow}
                     />
                 </Col>
                 {
-                    character
+                    characterId
                     ?
                     <Col md={5} style={divStyle}>
                         <ProfileContainer
                             user={user}
-                            character={character}
-                            setCharacter={setCharacter}
+                            characterId={characterId}
                             setMaterialId={setMaterialId}
                             setRecipeId={setRecipeId}
                             setRecipeListShow={setRecipeListShow}
@@ -90,11 +69,10 @@ const UserHome = (props) => {
                     null
                 }
                 {
-                    character && materialId || recipeId || recipeListShow
+                    characterId && materialId || recipeId || recipeListShow
                     ?
                     <Col md={4} style={divStyle}>
                         <InfoContainer
-                            character={character}
                             materialId={materialId}
                             setMaterialId={setMaterialId}
                             recipeId={recipeId}

@@ -2,15 +2,14 @@ import { Link } from "react-router-dom"
 import { CharacterPreview } from "./CharacterPreview"
 
 const CharacterContainer = (props) => {
-    const {characters, setCharacter, selectCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {user, setCharacterId, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     let charPreviews
-    charPreviews = characters.map((character, index) => {
+    charPreviews = props.user.characters.map((character, index) => {
         return <CharacterPreview
                     key={index}
                     character={character}
-                    setCharacter={setCharacter}
-                    selectCharacter={selectCharacter}
+                    setCharacterId={setCharacterId}
                     setMaterialId={setMaterialId}
                     setRecipeId={setRecipeId}
                     setRecipeListShow={setRecipeListShow}
