@@ -3,11 +3,12 @@ import MaterialView from "./MaterialView"
 import EditQuantityForm from "./EditQuantityForm"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
+import { getAllBlueprints } from "../../api/blueprints"
 
 export const InfoContainer = (props) => {
-    const {character, materialId, recipeId, recipeList, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow} = props
+    const {user, character, materialId, recipeId, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow} = props
     const [material, setMaterial] = useState(null)
-    // const [recipeList, setRecipeList] = useState(null)
+    const [recipeList, setRecipeList] = useState(null)
     const [recipe, setRecipe] = useState(null)
 
     // console.log('InfoContainer has loaded')
@@ -19,9 +20,10 @@ export const InfoContainer = (props) => {
             setMaterial(character.inventory.find(material => material.id === materialId))
         } else if (recipeId) {
             console.log('pretend this is a recipe fetch')
-            setRecipe(recipeList.find(recipe => recipe.id === recipeId))
         } else if (recipeListShow) {
-            console.log('pretend this is fetching all recipes')
+            getAllBlueprints(user)
+                .then(res => setRecipeList(res.data.blueprints))
+                .catch(err => console.log(err))
         } else {
             console.log(`something is weird:
             RecipeId: ${recipeId}
@@ -34,7 +36,10 @@ export const InfoContainer = (props) => {
 
     const divStyle = {
         width: "100%",
-        height: "100%"
+    }
+
+    if (!material && !recipeId && !recipeList) {
+        return <p>Loading</p>
     }
 
     if (material && !recipeId && !recipeListShow) {
@@ -64,7 +69,7 @@ export const InfoContainer = (props) => {
             }
             </div>
         )
-    } else if (recipeListShow && !recipeId) {
+    } else if (recipeListShow) {
         return (
             <div className="ui-container" style={divStyle}>
             <RecipeList recipes={recipeList} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>

@@ -9,7 +9,7 @@ const RecipePreview = (props) => {
                 setRecipeListShow(false)
             }}
         >
-            {recipe.name}
+            {recipe.recipe_name}
         </div>
     )
 }

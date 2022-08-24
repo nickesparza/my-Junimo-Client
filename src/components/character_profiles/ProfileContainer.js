@@ -18,7 +18,6 @@ export const ProfileContainer = (props) => {
         getOneCharacter(user, characterId)
             .then(res => setCharacter(res.data.character))
             .catch(err => console.log(err))
-        console.log('this is the character', character)
     }, [characterId, updated])
 
     const divStyle = {
@@ -70,7 +69,7 @@ export const ProfileContainer = (props) => {
                     setRecipeListShow={setRecipeListShow}
                 />
             </Row>
-            <Row fluid md="auto" className="py-2" style={{justifyContent: "center"}}>
+            <Row md="auto" className="py-2" style={{justifyContent: "center"}}>
                 <Col fluid>
                 <Button variant="info" onClick={() => setEditModalShow(true)}>Edit</Button>
                 </Col>
