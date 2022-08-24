@@ -12,16 +12,16 @@ export const Inventory = (props) => {
         getOneInventory(character.id)
     }, [updated])
 
-    let materialPreviews
-    materialPreviews = character.inventory.map((material, index) => {
-        return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
-    })
+    // let materialPreviews
+    // materialPreviews = character.inventory.map((material, index) => {
+    //     return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+    // })
 
     return (
         <div style={{border: "4px solid rgb(229,120,61)"}}>
             <h3 style={{textAlign: "center"}}>Inventory</h3>
             <div style={{display: "flex"}}>
-                {materialPreviews}
+                {/* {materialPreviews} */}
             </div>
         </div>
     )

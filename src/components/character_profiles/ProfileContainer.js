@@ -2,24 +2,33 @@ import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
 import { Container, Row, Col } from "react-bootstrap"
 import EditCharacterModal from "./EditCharacterModal"
-import { updateCharacter } from "../../api/characters"
+import { updateCharacter, getOneCharacter } from "../../api/characters"
 
 
 export const ProfileContainer = (props) => {
-    const { user, character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { user, characterId, setMaterialId, setRecipeId, setRecipeListShow } = props
     
+    const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
 
     // run getOneCharacter in here instead of in UserHome???
     useEffect(() => {
         console.log('useEffect ran in the ProfileContainer')
-    }, [])
+        getOneCharacter(user, characterId)
+            .then(res => setCharacter(res.data.character))
+            .catch(err => console.log(err))
+        console.log('this is the character', character)
+    }, [characterId])
 
     const divStyle = {
         // border: "2px solid black",
         width: "100%",
         height: "100%"
+    }
+
+    if (!character) {
+        return null
     }
 
     return (

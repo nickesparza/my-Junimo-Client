@@ -14,7 +14,7 @@ const UserHome = (props) => {
     const user = props.user
 
     useEffect(() => {
-        console.log('useEffect has run to get the entire recipe list. This should only happen once.')
+        console.log('useEffect has run to get the entire recipe list. This will probably change.')
         setRecipeList([
             {
                 name: "gate",
@@ -59,6 +59,7 @@ const UserHome = (props) => {
                         <ProfileContainer
                             user={user}
                             characterId={characterId}
+                            invUpdated={invUpdated}
                             setMaterialId={setMaterialId}
                             setRecipeId={setRecipeId}
                             setRecipeListShow={setRecipeListShow}

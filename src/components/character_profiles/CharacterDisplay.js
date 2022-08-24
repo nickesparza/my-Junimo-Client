@@ -10,7 +10,8 @@ export const CharacterDisplay = (props) => {
                 setRecipeListShow(false)
             }}
         >
-            <div>Farm Type: {character.farm_type}</div>
+            <div>Proprieter of {character.farm_name}</div>
+            <div>Year {character.year}</div>
         </div>
     )
 }
