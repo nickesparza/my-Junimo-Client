@@ -1,8 +1,10 @@
 import { Inventory } from "./Inventory"
 import { CharacterDisplay } from "./CharacterDisplay"
+import { useEffect } from "react"
 
 export const CharacterDetails = (props) => {
     const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+
     return (
         <div>
             <CharacterDisplay character={character} setCharacter={setCharacter} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>

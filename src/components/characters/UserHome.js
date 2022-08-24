@@ -78,6 +78,7 @@ const UserHome = (props) => {
                     ?
                     <Col md={5} style={divStyle}>
                         <ProfileContainer
+                            user={user}
                             character={character}
                             setCharacter={setCharacter}
                             setMaterialId={setMaterialId}

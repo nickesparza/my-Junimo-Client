@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
 import { Container, Row, Col } from "react-bootstrap"
+import EditCharacterModal from "./EditCharacterModal"
+import { updateCharacter } from "../../api/characters"
+
 
 export const ProfileContainer = (props) => {
-    const { character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { user, character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow } = props
+    
+    const [editModalShow, setEditModalShow] = useState(false)
+    const [updated, setUpdated] = useState(false)
+
+    // run getOneCharacter in here instead of in UserHome???
+    useEffect(() => {
+        console.log('useEffect ran in the ProfileContainer')
+    }, [])
 
     const divStyle = {
         // border: "2px solid black",
@@ -11,6 +23,7 @@ export const ProfileContainer = (props) => {
     }
 
     return (
+        <>
         <Container fluid className="ui-container" style={divStyle}>
             <Row>
                 <Col>
@@ -18,12 +31,10 @@ export const ProfileContainer = (props) => {
                 </Col>
                 <Col style={{alignSelf: "center", textAlign: "end"}}>
                     <button onClick={() => {
-                    setMaterialId(null)
-                    setRecipeId(null)
-                    setRecipeListShow(prev => !prev)
+                    setEditModalShow(true)
                     }}
                     >
-                    Show Recipes
+                    Edit
                     </button>
                 </Col>
             </Row>
@@ -36,17 +47,37 @@ export const ProfileContainer = (props) => {
                     setRecipeListShow={setRecipeListShow}
                 />
             </Row>
-            <Row className="py-2" style={{textAlign: "center"}}>
-                <button onClick={() => {
-                    setMaterialId(null)
-                    setRecipeId(null)
-                    setRecipeListShow(prev => !prev)
-                    }}
-                    >
-                    Show Recipes
-                </button>
+            <Row md="auto" className="py-2" style={{justifyContent: "center"}}>
+                {/* <Col md={6} style={{textAlign: "center"}}> */}
+                    <button onClick={() => {
+                        setMaterialId(null)
+                        setRecipeId(null)
+                        setRecipeListShow(prev => !prev)
+                        }}
+                        >
+                        Show Recipes
+                    </button>
+                {/* </Col> */}
             </Row>
         </Container>
+        <EditCharacterModal
+            // modal needs patient info to populate fields
+            character={character}
+            // send state of treatmentModalShow so the modal knows which form to render
+            // needs user in order to validate in the backend update function
+            user={user}
+            // this sets the visibility of the modal when the relevant button is clicked
+            show={editModalShow}
+            // this is a function passed in from props that will run the patch route
+            updateCharacter={updateCharacter}
+            // this updates the state to trigger another useEvent pull of data
+            triggerRefresh={() => setUpdated(prev => !prev)}
+            // this closes the modal when the submit button is pressed
+            handleClose={() => {
+                setEditModalShow(false)
+            }} 
+        />
+        </>
     )
 }
 

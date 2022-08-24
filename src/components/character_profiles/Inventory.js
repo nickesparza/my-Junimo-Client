@@ -20,7 +20,7 @@ export const Inventory = (props) => {
     return (
         <div style={{border: "4px solid rgb(229,120,61)"}}>
             <h3 style={{textAlign: "center"}}>Inventory</h3>
-            <div style={{display: "flex", justifyContent: "space-evenly"}}>
+            <div style={{display: "flex"}}>
                 {materialPreviews}
             </div>
         </div>
