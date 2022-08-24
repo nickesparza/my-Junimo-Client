@@ -3,11 +3,11 @@ import { CharacterDisplay } from "./CharacterDisplay"
 import { useEffect } from "react"
 
 export const CharacterDetails = (props) => {
-    const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {character, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     return (
         <div>
-            <CharacterDisplay character={character} setCharacter={setCharacter} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+            <CharacterDisplay character={character} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             {/* <EditCharacterModal/> */}
             <Inventory character={character} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             {/* <button onClick={() => {

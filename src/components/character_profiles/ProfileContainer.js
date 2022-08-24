@@ -6,7 +6,7 @@ import { updateCharacter, getOneCharacter } from "../../api/characters"
 
 
 export const ProfileContainer = (props) => {
-    const { user, characterId, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { user, characterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
     
     const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
@@ -19,7 +19,7 @@ export const ProfileContainer = (props) => {
             .then(res => setCharacter(res.data.character))
             .catch(err => console.log(err))
         console.log('this is the character', character)
-    }, [characterId])
+    }, [characterId, updated])
 
     const divStyle = {
         // border: "2px solid black",
@@ -40,10 +40,12 @@ export const ProfileContainer = (props) => {
                 </Col>
                 <Col style={{alignSelf: "center", textAlign: "end"}}>
                     <button onClick={() => {
-                    setEditModalShow(true)
-                    }}
-                    >
-                    Edit
+                        setMaterialId(null)
+                        setRecipeId(null)
+                        setRecipeListShow(prev => !prev)
+                        }}
+                        >
+                        Show Recipes
                     </button>
                 </Col>
             </Row>
@@ -57,16 +59,13 @@ export const ProfileContainer = (props) => {
                 />
             </Row>
             <Row md="auto" className="py-2" style={{justifyContent: "center"}}>
-                {/* <Col md={6} style={{textAlign: "center"}}> */}
-                    <button onClick={() => {
-                        setMaterialId(null)
-                        setRecipeId(null)
-                        setRecipeListShow(prev => !prev)
-                        }}
-                        >
-                        Show Recipes
-                    </button>
-                {/* </Col> */}
+                <button onClick={() => {
+                    setEditModalShow(true)
+                    }}
+                >
+                Edit
+                </button>
+                    
             </Row>
         </Container>
         <EditCharacterModal
@@ -80,7 +79,10 @@ export const ProfileContainer = (props) => {
             // this is a function passed in from props that will run the patch route
             updateCharacter={updateCharacter}
             // this updates the state to trigger another useEvent pull of data
-            triggerRefresh={() => setUpdated(prev => !prev)}
+            triggerRefresh={() => {
+                setUpdated(prev => !prev)
+                setCharUpdated(prev => !prev)
+            }}
             // this closes the modal when the submit button is pressed
             handleClose={() => {
                 setEditModalShow(false)

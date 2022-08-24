@@ -11,6 +11,7 @@ const UserHome = (props) => {
     const [recipeList, setRecipeList] = useState(null)
     const [recipeListShow, setRecipeListShow] = useState(false)
     const [invUpdated, setInvUpdated] = useState(false)
+    const [charUpdated, setCharUpdated] = useState(false)
     const user = props.user
 
     useEffect(() => {
@@ -41,11 +42,12 @@ const UserHome = (props) => {
     }
 
     return (
-        <Container fluid style={{alignItems: "stretch", height: "85%"}}>
+        <Container fluid style={{height: "85%"}}>
             <Row>
                 <Col md={3} style={divStyle}>
                     <CharacterContainer
                         user={user}
+                        charUpdated={charUpdated}
                         setCharacterId={setCharacterId}
                         setMaterialId={setMaterialId}
                         setRecipeId={setRecipeId}
@@ -60,6 +62,7 @@ const UserHome = (props) => {
                             user={user}
                             characterId={characterId}
                             invUpdated={invUpdated}
+                            setCharUpdated={setCharUpdated}
                             setMaterialId={setMaterialId}
                             setRecipeId={setRecipeId}
                             setRecipeListShow={setRecipeListShow}

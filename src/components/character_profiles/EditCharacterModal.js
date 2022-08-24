@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap"
 import CharacterForm from "../shared/CharacterForm"
 
 const EditCharacterModal = (props) => {
-    const {show, handleClose, updateCharacter, user} = props
+    const {show, handleClose, updateCharacter, user, triggerRefresh} = props
     const [character, setCharacter] = useState(props.character)
 
     const handleChange = (e) => {
@@ -24,29 +24,26 @@ const EditCharacterModal = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        updateCharacter(user, character.id)
-        // patient.doctors = props.patient.doctors
-        // patient.medicines = props.patient.medicines
-        // if (!patient.treatment) {
-        //     patient.treatment = 'No treatment assigned.'
-        // }
-        // updatePatient(user, patient)
-        //     .then(() => handleClose())
-        //     .then(() => {
-        //         msgAlert({
-        //             heading: 'Success',
-        //             message: messages.editPatientSuccess,
-        //             variant: 'success'
-        //         })
-        //     })
-        //     .then(() => triggerRefresh())
-        //     .catch(() => {
-        //         msgAlert({
-        //             heading: 'Error',
-        //             message: messages.editPatientFailure,
-        //             variant: 'danger'
-        //         })
-        //     })
+        character.total_g = parseInt(character.total_g)
+        character.year = parseInt(character.year)
+        updateCharacter(user, character)
+            .then(() => handleClose())
+            // .then(() => {
+            //     msgAlert({
+            //         heading: 'Success',
+            //         message: messages.editPatientSuccess,
+            //         variant: 'success'
+            //     })
+            // })
+            .then(() => triggerRefresh())
+            .catch(err => console.log(err))
+            // .catch(() => {
+            //     msgAlert({
+            //         heading: 'Error',
+            //         message: messages.editPatientFailure,
+            //         variant: 'danger'
+            //     })
+            // })
     }
 
     return (

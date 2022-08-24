@@ -44,6 +44,16 @@ export const createCharacter = (user, newCharacter) => {
 // update a character
 export const updateCharacter = (user, updatedCharacter) => {
     console.log(`updateCharacter route was hit for updated character ${updatedCharacter.name} belonging to ${user.email}`)
+    return axios({
+		url: apiUrl + `/characters/${updatedCharacter.id}/`,
+		method: 'PATCH',
+		headers: {
+			Authorization: `Token ${user.token}`,
+		},
+        data: {
+            character: updatedCharacter
+        },
+	})
 }
 
 // delete a character

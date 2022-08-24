@@ -1,10 +1,9 @@
 
 export const CharacterDisplay = (props) => {
-    const {character, setCharacter, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {character, setMaterialId, setRecipeId, setRecipeListShow} = props
     return (
         <div
             onClick={() => {
-                setCharacter(null)
                 setMaterialId(null)
                 setRecipeId(null)
                 setRecipeListShow(false)

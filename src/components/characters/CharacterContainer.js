@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { getAllCharacters } from "../../api/characters"
 
 const CharacterContainer = (props) => {
-    const {user, setCharacterId, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {user, charUpdated, setCharacterId, setMaterialId, setRecipeId, setRecipeListShow} = props
     const [characters, setCharacters] = useState(null)
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const CharacterContainer = (props) => {
         getAllCharacters(user)
             .then(res => setCharacters(res.data.characters))
             .catch(err => console.log(err))
-    }, [])
+    }, [charUpdated])
 
     if (!characters) {
         return <p>No Characters here.</p>
