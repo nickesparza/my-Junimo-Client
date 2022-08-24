@@ -70,10 +70,9 @@ const CharacterForm = (props) => {
                     <Form.Select
                         name='love_interest'
                         value={character.love_interest}
-                        type='text'
-                        placeholder='Separate multiple love interests with a comma if necessary'
                         onChange={handleChange}
                     >
+                        <option>Choose love interest</option>
                         <option value="AL">Alex</option>
                         <option value="EL">Elliot</option>
                         <option value="HA">Harvey</option>

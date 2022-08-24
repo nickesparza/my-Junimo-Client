@@ -59,4 +59,11 @@ export const updateCharacter = (user, updatedCharacter) => {
 // delete a character
 export const deleteCharacter = (user, characterId) => {
     console.log(`deleteCharacter route was hit for character with ID ${characterId} belonging to user ${user.email}`)
+    return axios({
+		url: apiUrl + `/characters/${characterId}/`,
+		method: 'DELETE',
+		headers: {
+			Authorization: `Token ${user.token}`,
+		},
+	})
 }

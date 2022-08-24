@@ -62,6 +62,7 @@ const UserHome = (props) => {
                             user={user}
                             characterId={characterId}
                             invUpdated={invUpdated}
+                            setCharacterId={setCharacterId}
                             setCharUpdated={setCharUpdated}
                             setMaterialId={setMaterialId}
                             setRecipeId={setRecipeId}

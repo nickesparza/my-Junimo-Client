@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
 import { Container, Row, Col } from "react-bootstrap"
 import EditCharacterModal from "./EditCharacterModal"
-import { updateCharacter, getOneCharacter } from "../../api/characters"
+import { updateCharacter, deleteCharacter, getOneCharacter } from "../../api/characters"
 
 
 export const ProfileContainer = (props) => {
-    const { user, characterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { user, characterId, setCharacterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
     
     const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
@@ -25,6 +25,13 @@ export const ProfileContainer = (props) => {
         // border: "2px solid black",
         width: "100%",
         height: "100%"
+    }
+
+    const removeCharacter = () => {
+        deleteCharacter(user, character.id)
+            .then(setCharUpdated(prev => !prev))
+            .then(setCharacterId(null))
+            .catch(err => console.log(err))
     }
 
     if (!character) {
@@ -65,7 +72,7 @@ export const ProfileContainer = (props) => {
                 >
                 Edit
                 </button>
-                    
+                <button onClick={() => removeCharacter()}>Delete</button>
             </Row>
         </Container>
         <EditCharacterModal
