@@ -1,9 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap"
 import { useEffect, useState } from "react"
-import { ProfileContainer } from "../character_profiles/ProfileContainer"
-import CharacterContainer from "./CharacterContainer"
-import { InfoContainer } from "../materials/InfoContainer"
-import { getAllCharacters, getOneCharacter } from "../../api/characters"
+import { ProfileContainer } from './character_profiles/ProfileContainer'
+import CharacterContainer from "./characters/CharacterContainer"
+import { InfoContainer } from "./info/InfoContainer"
 
 const UserHome = (props) => {
     const [characterId, setCharacterId] = useState(null)

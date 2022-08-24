@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import MaterialView from "./MaterialView"
 import EditQuantityForm from "./EditQuantityForm"
-import RecipeList from "../recipes/RecipeList"
-import RecipeView from "../recipes/RecipeView"
+import RecipeList from "./RecipeList"
+import RecipeView from "./RecipeView"
 
 export const InfoContainer = (props) => {
     const {character, materialId, recipeId, recipeList, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow} = props

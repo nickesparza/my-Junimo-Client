@@ -1,4 +1,5 @@
-import UserHome from "./characters/UserHome"
+import UserHome from "./UserHome"
+import NoUserHome from "./NoUserHome"
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
@@ -15,9 +16,7 @@ const Home = (props) => {
         )
     } else {
         return (
-            <>
-                <h2>No User Found, so imagine this is the NoUserHome component.</h2>
-            </>
+            <NoUserHome/>
         )
     }
 
