@@ -3,6 +3,13 @@
 # Summary: 
 Finally, an app that makes resource and crafting management easy in Stardew Valley! This app allows you to manage the inventory of your character(s) and easily see if your inventory meets the requirements for crafting items (and larger projects!) inside Stardew Valley.
 
+# Link to API
+https://github.com/alysvolatile/my-junimo-api
+
+# Technologies Used
+Django/SQL Backend (Python)
+React Frontend
+
 # Team:
 Nick Esparza, Alys Cooper
 
@@ -32,3 +39,14 @@ Nick Esparza, Alys Cooper
 ## Construction Project Blueprints
 * As a user, I want to view all construction project blueprints.
 * As a user, I want to view one construction project blueprint.
+
+# Wireframes
+<img src='./Wireframes/MyJunimoWireframes1.jpg' width ='800px' />
+<img src='./Wireframes/MyJunimoWireframes2.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes3.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes4.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes5.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes6.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes7.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes8.jpg' width ='800px'/>
+<img src='./Wireframes/MyJunimoWireframes9.jpg' width ='800px'/>
