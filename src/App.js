@@ -26,35 +26,6 @@ const App = () => {
     setUser(null)
   }
 
-//   useEffect(() => {
-//     setUser({
-//         email: "Nick",
-//         id: 1,
-//         characters: [
-//             {
-//                 name: "Chester",
-//                 id: 1,
-//                 farm_type: "maize",
-//                 inventory: [
-//                     {name: "coal", description: "black and burnt", amount: 5, id: 1},
-//                     {name: "wood", description: "some wood", amount: 10, id: 2},
-//                     {name: "iridium", description: "who even knows, from space maybe?", amount: 12, id: 4}
-//                 ]
-//             },
-//             {
-//                 name: "Phoebe",
-//                 id: 2,
-//                 farm_type: "beans",
-//                 inventory: [
-//                     {name: "coal", description: "black and burnt", amount: 10, id: 1},
-//                     {name: "wood", description: "some wood", amount: 500, id: 2},
-//                     {name: "hardwood", description: "even harder wood", amount: 25, id: 3}
-//                 ]
-//             }
-//         ]
-//     })
-//   }, [])
-
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
 			return (prevState.filter((msg) => msg.id !== id) )

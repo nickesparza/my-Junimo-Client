@@ -10,7 +10,7 @@ const Home = (props) => {
     if (user) {
         return (
             <>
-                <h2>Hello {user.email}</h2>
+                <h2 className="my-3">Hello {user.email}</h2>
                 <UserHome user={user}/>
             </>
         )
