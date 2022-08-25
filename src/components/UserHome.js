@@ -20,7 +20,7 @@ const UserHome = (props) => {
     }
 
     return (
-        <Container fluid style={{height: "85%"}}>
+        <Container fluid style={{height: "90%"}}>
             <Row style={{height: "100%"}}>
                 <Col lg={3} style={divStyle}>
                     <CharacterContainer
