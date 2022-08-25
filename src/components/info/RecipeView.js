@@ -20,7 +20,7 @@ const RecipeView = (props) => {
         }}>
             <h2>{blueprint.recipe_name}</h2>
             <div className="ui-container" style={{display: "inline-block" }}>
-            <img src={recipeImagePath} alt={recipeImagePath}/>
+            <img src={recipeImagePath} alt={recipeImagePath} style={{width: "130px"}}/>
             </div>
             <div>{blueprint.recipe_description}</div>
         </div>

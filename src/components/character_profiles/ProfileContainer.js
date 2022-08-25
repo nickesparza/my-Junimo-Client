@@ -49,16 +49,6 @@ export const ProfileContainer = (props) => {
                 <Col>
                     <h4>{character.name}</h4>
                 </Col>
-                <Col style={{alignSelf: "center", textAlign: "end"}}>
-                    <button onClick={() => {
-                        setMaterialId(null)
-                        setRecipeId(null)
-                        setRecipeListShow(prev => !prev)
-                        }}
-                        >
-                        Show Recipes
-                    </button>
-                </Col>
             </Row>
             <Row>
                 <CharacterDetails

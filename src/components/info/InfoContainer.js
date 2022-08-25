@@ -40,10 +40,9 @@ export const InfoContainer = (props) => {
 
     const divStyle = {
         width: "100%",
-        height: "100%"
     }
 
-    if (material && !blueprint && !recipeListShow) {
+    if (material) {
         return (
             <div className="ui-container" style={divStyle}>
                     <>
