@@ -12,7 +12,7 @@ const RecipePreview = (props) => {
                 setRecipeListShow(false)
             }}
         >
-            <img src={recipeImagePath} alt={recipeImagePath}/>
+            <img className="selector" src={recipeImagePath} alt={recipeImagePath}/>
         </div>
     )
 }
