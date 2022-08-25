@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap";
+@import 'custom';
 
 @keyframes light-bounce-in {
     0% {
@@ -44,6 +44,6 @@
     animation: .5s ease-in-out 0s 1 horizontal-bounce-in;
 }
 
-.btn {
-    background-color: green;
-}
+// .btn-primary {
+//     background-color: red;
+// }

@@ -7,8 +7,10 @@ const RecipeView = (props) => {
     return (
         <div style={{margin:"5px", paddingBottom: "15%", textAlign: "center"}}>
             <h2>{blueprint.recipe_name}</h2>
-            <div className="ui-container my-2" style={{display: "flex", width: "150px", height: "150px", justifyContent: "center", alignItems: "center"}}>
-            <img src={recipeImagePath} alt={recipeImagePath}/>
+            <div className="my-3" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <div className="ui-container" style={{display: "flex", width: "150px", height: "150px", justifyContent: "center", alignItems: "center"}}>
+                    <img src={recipeImagePath} alt={recipeImagePath}/>
+                </div>
             </div>
             <p>{blueprint.recipe_description}</p>
         </div>

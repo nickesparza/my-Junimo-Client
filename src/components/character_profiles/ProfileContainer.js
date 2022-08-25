@@ -13,7 +13,6 @@ export const ProfileContainer = (props) => {
     const [editModalShow, setEditModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
 
-    // run getOneCharacter in here instead of in UserHome???
     useEffect(() => {
         console.log('useEffect ran in the ProfileContainer')
         getOneCharacter(user, characterId)
@@ -22,7 +21,6 @@ export const ProfileContainer = (props) => {
     }, [characterId, updated])
 
     const divStyle = {
-        // border: "2px solid black",
         width: "100%",
         height: "100%"
     }
