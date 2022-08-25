@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import MaterialView from "./MaterialView"
 import EditQuantityForm from "./EditQuantityForm"
+import CloseButton from "../shared/CloseButton"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
 import { getAllBlueprints, getOneBlueprint } from "../../api/blueprints"
@@ -44,29 +45,38 @@ export const InfoContainer = (props) => {
 
     if (material) {
         return (
-            <div className="ui-container" style={divStyle}>
-                    <>
+            <div className="ui-container animated" style={divStyle}>
+                <CloseButton
+                handleClose={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(false)}}
+                />
                     <MaterialView material={material} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
                     {/* <EditQuantityForm user={user} character={character} materialIndex={character.inventory.indexOf(material)}/> */}
-                    </>
-
             </div>
         )
     } else if (blueprint) {
         return (
-            <div className="ui-container" style={divStyle}>
+            <div className="ui-container animated" style={divStyle}>
+                <CloseButton
+                handleClose={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(false)}}
+                />
                 <RecipeView character={character} blueprint={blueprint} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
     } else if (recipeListShow) {
         return (
-            <div className="ui-container" style={{maxHeight: "100%", overflowY: "scroll"}}>
+            <div className="ui-container animated" style={{maxHeight: "100%", overflowY: "scroll"}}>
             <RecipeList recipes={recipeList} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
     }
     return (
-        <div className="ui-container"
+        <div className="ui-container animated"
             onClick={() => {
                 setRecipeId(null)
                 setMaterialId(null)

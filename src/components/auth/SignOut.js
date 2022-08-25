@@ -30,7 +30,7 @@ const SignOut = (props) => {
 
 	return (
 		<>
-            <div className='row'>
+            <div>
                 <div className='col-sm-10 col-md-8 mx-auto mt-5 p-5 ui-container' style={{textAlign: "center"}}>
                     <h2>Are you sure you want to sign out?</h2>
                     <ButtonGroup>

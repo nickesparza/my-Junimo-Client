@@ -5,7 +5,6 @@ const CloseButton = (props) => {
     const divStyle = {
         position: "absolute",
         left: "95%",
-        top: "-1%",
         backgroundColor: "red",
         color: "white",
         border: "2px solid white"

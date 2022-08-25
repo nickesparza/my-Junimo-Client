@@ -45,7 +45,7 @@ export const ProfileContainer = (props) => {
 
     return (
         <>
-        <Container fluid className="ui-container" style={divStyle}>
+        <Container fluid className="ui-container animated" style={divStyle}>
             <CloseButton
                 handleClose={() => {
                     setCharacterId(null)
