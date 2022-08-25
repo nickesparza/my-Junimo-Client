@@ -1,9 +1,16 @@
+import apiUrl from '../apiConfig'
+import axios from 'axios'
+
 // get all materials
-const getAllMaterials = () => {
+export const getAllMaterials = () => {
     console.log('getAllMaterials route was hit')
 }
 
 // get one material
-const getOneMaterial = (materialId) => {
+export const getOneMaterial = (materialId) => {
     console.log(`getOneMaterial route was hit for material with ID ${materialId}`)
+    return axios({
+		url: apiUrl + `/materials/${materialId}`,
+		method: 'GET',
+	})
 }

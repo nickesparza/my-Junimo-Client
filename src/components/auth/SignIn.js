@@ -35,13 +35,6 @@ const SignIn = (props) => {
 
 		signIn(credentials)
 			.then((res) => setUser(res.data.user))
-			.then(() =>
-				msgAlert({
-					heading: 'Sign In Success',
-					message: messages.signInSuccess,
-					variant: 'success',
-				})
-			)
 			.then(() => navigate('/'))
 			.catch((error) => {
                 setEmail('')
@@ -55,8 +48,8 @@ const SignIn = (props) => {
 	}
 
     return (
-        <div className='row'>
-            <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+        <div>
+            <div className='col-sm-10 col-md-8 mx-auto mt-5 p-5 ui-container'>
                 <h3>Sign In</h3>
                 <Form onSubmit={onSignIn}>
                     <Form.Group controlId='email'>

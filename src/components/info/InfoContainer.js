@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import MaterialView from "./MaterialView"
 import EditQuantityForm from "./EditQuantityForm"
+import CloseButton from "../shared/CloseButton"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
 import { getAllBlueprints, getOneBlueprint } from "../../api/blueprints"
+import { getOneMaterial } from "../../api/materials"
 
 export const InfoContainer = (props) => {
     const {user, character, materialId, recipeId, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow} = props
@@ -15,6 +17,13 @@ export const InfoContainer = (props) => {
     // console.log('props in InfoContainer', props)
     useEffect(() => {
         console.log('useEffect has run in InfoContainer')
+        if (materialId) {
+            console.log('this is a material fetch')
+            getOneMaterial(materialId)
+                .then(res => setMaterial(res.data.material))
+        } else {
+            setMaterial(null)
+        }
         if (recipeId) {
             console.log('this is a blueprint fetch')
             getOneBlueprint(recipeId)
@@ -32,50 +41,48 @@ export const InfoContainer = (props) => {
 
     const divStyle = {
         width: "100%",
-        height: "100%"
     }
 
-    if (!material && !blueprint && !recipeList) {
-        return <div className="ui-container">Loading</div>
-    }
-
-    if (material && !blueprint && !recipeListShow) {
+    if (material) {
         return (
-            <div className="ui-container" style={divStyle}>
-                {
-                    material
-                    ?
-                    <>
-                    <MaterialView material={material}/>
-                    <EditQuantityForm user={user} character={character} materialIndex={character.inventory.indexOf(material)}/>
-                    </>
-                    :
-                    null
-                }
+            <div className="ui-container animated" style={divStyle}>
+                <CloseButton
+                handleClose={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(false)}}
+                />
+                    <MaterialView material={material} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
+                    {/* <EditQuantityForm user={user} character={character} materialIndex={character.inventory.indexOf(material)}/> */}
             </div>
         )
     } else if (blueprint) {
         return (
-            <div className="ui-container" style={divStyle}>
+            <div className="ui-container animated" style={divStyle}>
+                <CloseButton
+                handleClose={() => {
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(false)}}
+                />
                 <RecipeView character={character} blueprint={blueprint} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
     } else if (recipeListShow) {
         return (
-            <div className="ui-container" style={{maxHeight: "100%", overflowY: "scroll"}}>
+            <div className="ui-container animated" style={{maxHeight: "100%", overflowY: "scroll"}}>
             <RecipeList recipes={recipeList} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
     }
     return (
-        <div className="ui-container"
+        <div className="ui-container animated"
             onClick={() => {
                 setRecipeId(null)
                 setMaterialId(null)
-                setMaterial(null)
                 setRecipeListShow(false)
             }}>
-            Whoops.
+            Loading
         </div>
     )
 }

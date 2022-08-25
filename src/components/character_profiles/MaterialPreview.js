@@ -7,11 +7,10 @@ export const MaterialPreview = (props) => {
             onClick={() => {
                 setRecipeId(null)
                 setRecipeListShow(false)
-                setMaterialId(material.id)
+                setMaterialId(1)
             }}
         >
-            <p>{material.name}</p>
-            <p>{material.amount}</p>
+            This is a material.
         </div>
     )
 }

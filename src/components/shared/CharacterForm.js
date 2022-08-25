@@ -65,6 +65,9 @@ const CharacterForm = (props) => {
                         <option value="C1">Cat 1</option>
                         <option value="C2">Cat 2</option>
                         <option value="C3">Cat 3</option>
+                        <option value="D1">Dog 1</option>
+                        <option value="D2">Dog 2</option>
+                        <option value="D3">Dog 3</option>
                     </Form.Select>
                     <Form.Label htmlFor='love_interest'>Love Interest</Form.Label>
                     <Form.Select

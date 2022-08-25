@@ -49,8 +49,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar fixed='bottom' bg='none' variant='light' expand='md' >
-        <Container style={{width: "fit-content", backgroundColor: "rgb(132,170,217)"}}>
+	<Navbar fixed='bottom' variant='light' expand='md'>
+        <Container  className='ui-container' style={{width: "fit-content"}}>
             <Navbar.Brand>
                 <Link to='/' style={linkStyle}>
                     <img
@@ -65,9 +65,6 @@ const Header = ({ user }) => (
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
                 <Nav className='ml-6'>
-                    {user && (
-                        <span className='navbar-text mr-2'>{user.email}</span>
-                    )}
                     {alwaysOptions}
                     {user ? authenticatedOptions : unauthenticatedOptions}
                 </Nav>
