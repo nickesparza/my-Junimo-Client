@@ -12,14 +12,16 @@ const RecipeView = (props) => {
     // })
 
     return (
-        <div style={{margin:"5px", paddingBottom: "15%"}}
+        <div style={{margin:"5px", paddingBottom: "15%", textAlign: "center"}}
         onClick={() => {
             setRecipeId(null)
             setMaterialId(null)
             setRecipeListShow(false)
         }}>
-            <div>{blueprint.recipe_name}</div>
+            <h2>{blueprint.recipe_name}</h2>
+            <div className="ui-container" style={{display: "inline-block" }}>
             <img src={recipeImagePath} alt={recipeImagePath}/>
+            </div>
             <div>{blueprint.recipe_description}</div>
         </div>
     )

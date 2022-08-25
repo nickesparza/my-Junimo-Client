@@ -1,13 +1,17 @@
 
 
 const MaterialView = (props) => {
-    const material = props.material
+    const { material, setMaterialId, setRecipeId, setRecipeListShow } = props
     console.log('material in MaterialView', material)
 
     return (
-        <div>
-            <div>{material.name}</div>
-            <div>{material.description}</div>
+        <div onClick={() => {
+            setMaterialId(null)
+            setRecipeId(null)
+            setRecipeListShow(false)
+        }}>
+            <div>{material.material_name}</div>
+            <div>{material.material_description}</div>
         </div>
     )
 }

@@ -22,6 +22,7 @@ export const Inventory = (props) => {
             <h3 style={{textAlign: "center"}}>Inventory</h3>
             <div style={{display: "flex"}}>
                 {/* {materialPreviews} */}
+                <MaterialPreview setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             </div>
         </div>
     )
