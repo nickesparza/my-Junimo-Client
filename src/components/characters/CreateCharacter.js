@@ -1,21 +1,22 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import { createCharacter } from "../../api/characters"
 import CharacterForm from "../shared/CharacterForm"
 
 const CreateCharacter = (props) => {
     const user = props.user
-
+    const navigate = useNavigate()
     const [character, setCharacter] = useState({
         name: '',
-        platform: '',
-        farm_type: '',
+        Platform: '',
+        farm_name: '',
         pet_type: '',
         pet_name: '',
         pet_image: '',
         love_interest: '',
         horse_name: '',
-        money: 0,
+        total_g: 0,
         year: 0
     })
 
@@ -38,24 +39,13 @@ const CreateCharacter = (props) => {
     // handleSubmit function for when we send data to the backend
     const handleSubmit = (e) => {
         e.preventDefault()
+        character.total_g = parseInt(character.total_g)
+        character.year = parseInt(character.year)
         console.log('info was submitted', character)
         createCharacter(user, character)
-        //     .then(res => navigate(`/`))
-        //     .then(() => {
-        //         msgAlert({
-        //             heading: 'Success',
-        //             message: messages.createPatientSuccess,
-        //             variant: 'success'
-        //         })
-        //     })
-        //     .catch((err) => {
-        //         console.log(err)
-        //         msgAlert({
-        //             heading: 'Warning',
-        //             message: messages.createPatientFailure,
-        //             variant: 'danger'
-        //         })
-        //     })
+            .then(res => navigate('/'))
+            .catch(err => console.log(err))
+        
         }
 
     return (

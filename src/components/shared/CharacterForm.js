@@ -4,8 +4,8 @@ const CharacterForm = (props) => {
     const { character, heading, handleChange, handleSubmit } = props
 
     return (
-        <Container className='justify-content-center'>
-            <h1>{heading}</h1>
+        <Container className='justify-content-center my-3' style={{maxWidth: "75%"}}>
+            <h2>{heading}</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label htmlFor='name'>Name</Form.Label>
@@ -17,31 +17,24 @@ const CharacterForm = (props) => {
                         placeholder='Enter character name'
                         onChange={handleChange}
                     />
-                    <Form.Label htmlFor='platform'>Platform</Form.Label>
+                    <Form.Label htmlFor='Platform'>Platform</Form.Label>
                     <Form.Control
                         required
-                        name='platform'
-                        value={character.platform}
+                        name='Platform'
+                        value={character.Platform}
                         type='text'
                         placeholder='Switch, PS4, PC, etc.'
                         onChange={handleChange}
                     />
-                    <Form.Label htmlFor='farm_type'>Farm Type</Form.Label>
-                    <Form.Select
+                    <Form.Label htmlFor='farm_name'>Farm Name</Form.Label>
+                    <Form.Control
                         required
-                        name='farm_type'
-                        defaultValue={character.farm_type}
+                        name='farm_name'
+                        value={character.farm_name}
+                        type='text'
+                        placeholder='Enter farm name'
                         onChange={handleChange}
-                    >
-                        <option>Choose Farm Type</option>
-                        <option value="Standard">Standard</option>
-                        <option value="Riverland">Riverland</option>
-                        <option value="Forest">Forest</option>
-                        <option value="Hill-top">Hill-top</option>
-                        <option value="Wilderness">Wilderness</option>
-                        <option value="Four Corners">Four Corners</option>
-                        <option value="Beach">Beach</option>
-                    </Form.Select>
+                    />
                     <Form.Label htmlFor='pet_type'>Pet Type</Form.Label>
                     <Form.Select
                         required
@@ -69,18 +62,31 @@ const CharacterForm = (props) => {
                         onChange={handleChange}
                     >
                         <option>Choose image</option>
-                        <option value="image1">Image 1</option>
-                        <option value="image2">Image 2</option>
-                        <option value="image 3">Image 3</option>
+                        <option value="C1">Cat 1</option>
+                        <option value="C2">Cat 2</option>
+                        <option value="C3">Cat 3</option>
                     </Form.Select>
                     <Form.Label htmlFor='love_interest'>Love Interest</Form.Label>
-                    <Form.Control
+                    <Form.Select
                         name='love_interest'
                         value={character.love_interest}
-                        type='text'
-                        placeholder='Separate multiple love interests with a comma if necessary'
                         onChange={handleChange}
-                    />
+                    >
+                        <option>Choose love interest</option>
+                        <option value="AL">Alex</option>
+                        <option value="EL">Elliot</option>
+                        <option value="HA">Harvey</option>
+                        <option value="SA">Sam</option>
+                        <option value="SE">Sebastian</option>
+                        <option value="SH">Shane</option>
+                        <option value="AB">Abigail</option>
+                        <option value="EM">Emily</option>
+                        <option value="HL">Haley</option>
+                        <option value="LE">Leah</option>
+                        <option value="MA">Maru</option>
+                        <option value="PE">Penny</option>
+                        <option value="KR">Krobus</option>
+                    </Form.Select>
                     <Form.Label htmlFor='horse_name'>Horse Name</Form.Label>
                     <Form.Control
                         name='horse_name'
@@ -89,16 +95,24 @@ const CharacterForm = (props) => {
                         placeholder='Enter horse name'
                         onChange={handleChange}
                     />
-                    <Form.Label htmlFor='money'>Total Money</Form.Label>
+                    <Form.Label htmlFor='total_g'>Total Money</Form.Label>
                     <Form.Control
-                        name='money'
-                        value={character.money}
+                        name='total_g'
+                        value={character.total_g}
                         type='number'
-                        placeholder='Enter total money'
+                        placeholder='Enter total g'
+                        onChange={handleChange}
+                    />
+                    <Form.Label htmlFor='year'>Year</Form.Label>
+                    <Form.Control
+                        name='year'
+                        value={character.year}
+                        type='number'
+                        placeholder='Enter current year'
                         onChange={handleChange}
                     />
                 </Form.Group>
-                <Button type="submit">
+                <Button className="my-2" type="submit">
                     Submit
                 </Button>
             </Form>

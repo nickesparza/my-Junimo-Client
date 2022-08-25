@@ -1,4 +1,6 @@
-import UserHome from "./characters/UserHome"
+import UserHome from "./UserHome"
+import NoUserHome from "./NoUserHome"
+import { Container } from "react-bootstrap"
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
@@ -9,15 +11,15 @@ const Home = (props) => {
     if (user) {
         return (
             <>
-                <h2>Hello {user.email}</h2>
+            <Container fluid className="mt-3">
+                <div className="ui-container"><h2>Welcome to MyJunimo!</h2></div>
+            </Container>
                 <UserHome user={user}/>
             </>
         )
     } else {
         return (
-            <>
-                <h2>No User Found, so imagine this is the NoUserHome component.</h2>
-            </>
+            <NoUserHome/>
         )
     }
 
