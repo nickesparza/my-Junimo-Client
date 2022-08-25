@@ -8,7 +8,7 @@ const RecipeList = (props) => {
     ))
 
     return (
-        <div style={{overflow: "scroll"}}>
+        <div style={{overflow: "scroll", display: "flex", flexWrap: "wrap"}}>
             {allRecipes}
         </div>
     )

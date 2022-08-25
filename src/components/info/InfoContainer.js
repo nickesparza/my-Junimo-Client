@@ -3,25 +3,28 @@ import MaterialView from "./MaterialView"
 import EditQuantityForm from "./EditQuantityForm"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
-import { getAllBlueprints } from "../../api/blueprints"
+import { getAllBlueprints, getOneBlueprint } from "../../api/blueprints"
 
 export const InfoContainer = (props) => {
     const {user, character, materialId, recipeId, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow} = props
     const [material, setMaterial] = useState(null)
     const [recipeList, setRecipeList] = useState(null)
-    const [recipe, setRecipe] = useState(null)
+    const [blueprint, setBlueprint] = useState(null)
 
     // console.log('InfoContainer has loaded')
     // console.log('props in InfoContainer', props)
     useEffect(() => {
         console.log('useEffect has run in InfoContainer')
-        if (materialId) {
-            console.log('pretend this is a material fetch')
-            setMaterial(character.inventory.find(material => material.id === materialId))
-        } else if (recipeId) {
-            console.log('pretend this is a recipe fetch')
-        } else if (recipeListShow) {
-            getAllBlueprints(user)
+        if (recipeId) {
+            console.log('this is a blueprint fetch')
+            getOneBlueprint(recipeId)
+                .then(res => setBlueprint(res.data.blueprint))
+                .catch(err => console.log(err))
+        } else {
+            setBlueprint(null)
+        }
+        if (recipeListShow) {
+            getAllBlueprints()
                 .then(res => setRecipeList(res.data.blueprints))
                 .catch(err => console.log(err))
         } else {
@@ -30,19 +33,27 @@ export const InfoContainer = (props) => {
             MaterialId: ${materialId}
             recipeListShow: ${recipeListShow}
             material: ${material}
-            recipe: ${recipe}`)
+            blueprint: ${blueprint}`)
         }
     }, [recipeListShow, materialId, recipeId])
+
+    console.log('this is the blueprint in infoContainer', blueprint)
+    console.log(`something is weird:
+            RecipeId: ${recipeId}
+            MaterialId: ${materialId}
+            recipeListShow: ${recipeListShow}
+            material: ${material}
+            blueprint: ${blueprint}`)
 
     const divStyle = {
         width: "100%",
     }
 
-    if (!material && !recipeId && !recipeList) {
-        return <p>Loading</p>
+    if (!material && !blueprint && !recipeList) {
+        return <div className="ui-container">Loading</div>
     }
 
-    if (material && !recipeId && !recipeListShow) {
+    if (material && !blueprint && !recipeListShow) {
         return (
             <div className="ui-container" style={divStyle}>
                 {
@@ -50,23 +61,17 @@ export const InfoContainer = (props) => {
                     ?
                     <>
                     <MaterialView material={material}/>
-                    <EditQuantityForm character={character} materialIndex={character.inventory.indexOf(material)}/>
+                    <EditQuantityForm user={user} character={character} materialIndex={character.inventory.indexOf(material)}/>
                     </>
                     :
                     null
                 }
             </div>
         )
-    } else if (recipeId && !materialId && !recipeListShow) {
+    } else if (blueprint) {
         return (
             <div className="ui-container" style={divStyle}>
-            {
-                recipe
-                ?
-                <RecipeView character={character} recipe={recipe} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
-                :
-                null
-            }
+                <RecipeView character={character} blueprint={blueprint} setRecipeId={setRecipeId} setMaterialId={setMaterialId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )
     } else if (recipeListShow) {
@@ -77,13 +82,14 @@ export const InfoContainer = (props) => {
         )
     }
     return (
-        <div style={{border: "2px solid black", display: "inline-block"}}
+        <div className="ui-container"
             onClick={() => {
                 setRecipeId(null)
                 setMaterialId(null)
                 setMaterial(null)
                 setRecipeListShow(false)
             }}>
+            Whoops.
         </div>
     )
 }

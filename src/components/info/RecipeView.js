@@ -1,19 +1,8 @@
 
 const RecipeView = (props) => {
-    const {recipe, setMaterialId, setRecipeId, setRecipeListShow} = props
-    const inventory = props.character.inventory
+    const {blueprint, setMaterialId, setRecipeId, setRecipeListShow} = props
+    console.log('this is the recipe in RecipeView', blueprint)
 
-    let recipeReqs
-    recipeReqs = recipe.ingredients.map((ingredient, index) => {
-        return <p key={index}>{ingredient.name}: {ingredient.amount}</p>
-    })
-
-    let currentInv
-    currentInv = inventory.map((ingredient, index) => {
-        return <p key={index}>{ingredient.name}: {ingredient.amount}</p>
-    })
-
-    let isCraftable = true
     // recipe.ingredients.forEach(ingredient => {
     //     if (inventory.includes(ingredient)) {
     //         isCraftable = true
@@ -22,7 +11,6 @@ const RecipeView = (props) => {
     //     }
     // })
 
-    console.log(recipeReqs)
     return (
         <div style={{margin:"5px", paddingBottom: "15%"}}
         onClick={() => {
@@ -30,19 +18,8 @@ const RecipeView = (props) => {
             setMaterialId(null)
             setRecipeListShow(false)
         }}>
-            <div>{recipe.name}</div>
-            <div>{recipe.description}</div>
-            <div>
-                This recipe requires:
-                {recipeReqs}
-            </div>
-            <div>
-                You have:
-                {currentInv}
-            </div>
-            {
-                isCraftable ? <p>You can craft this recipe.</p> : <p>You cannot craft this recipe.</p>
-            }
+            <div>{blueprint.recipe_name}</div>
+            <div>{blueprint.recipe_description}</div>
         </div>
     )
 }

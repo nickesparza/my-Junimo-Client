@@ -1,8 +1,8 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-// get all recipes
-export const getAllBlueprints = (user) => {
+// get all blueprints
+export const getAllBlueprints = () => {
     console.log('getAllBlueprints route was hit')
     return axios({
 		url: apiUrl + `/blueprints`,
@@ -10,7 +10,7 @@ export const getAllBlueprints = (user) => {
 	})
 }
 
-// get one recipe
+// get one blueprint
 export const getOneBlueprint = (blueprintId) => {
     console.log(`getOneBlueprint route was hit for recipe with ID ${blueprintId}`)
     return axios({
