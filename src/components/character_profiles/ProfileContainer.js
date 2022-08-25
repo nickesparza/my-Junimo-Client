@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
 import { Container, Row, Col, Button } from "react-bootstrap"
+import CloseButton from "../shared/CloseButton"
 import EditCharacterModal from "./EditCharacterModal"
 import { updateCharacter, deleteCharacter, getOneCharacter } from "../../api/characters"
 
@@ -45,6 +46,13 @@ export const ProfileContainer = (props) => {
     return (
         <>
         <Container fluid className="ui-container" style={divStyle}>
+            <CloseButton
+                handleClose={() => {
+                    setCharacterId(null)
+                    setMaterialId(null)
+                    setRecipeId(null)
+                    setRecipeListShow(false)}}
+            />
             <Row>
                 <Col>
                     <h4>{character.name}</h4>

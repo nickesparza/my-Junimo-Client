@@ -34,10 +34,6 @@ code {
     padding: 5px
 }
 
-.selector:hover {
-    filter: drop-shadow(2px 2px 0.1rem rgb(0, 0, 0, 0.2))
-}
-
 h2, h3, h4, h5, h6 {
     text-align: center;
 }
@@ -46,22 +42,28 @@ h2, h3, h4, h5, h6 {
     height: 100% !important;
 }
 
+.selector:hover {
+    filter: drop-shadow(2px 2px 0.1rem rgb(0, 0, 0, 0.2));
+    cursor: pointer;
+    
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: rgb(255, 225, 172);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: rgb(229,120,61);
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgb(187, 98, 50);
-  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: rgb(255, 225, 172);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: rgb(229,120,61);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: rgb(187, 98, 50);
+}

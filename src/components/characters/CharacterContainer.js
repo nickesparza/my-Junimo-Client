@@ -35,12 +35,12 @@ const CharacterContainer = (props) => {
 
     return (
         <div className="ui-container" style={divStyle}>
-            <h4>Characters</h4>
+            <h4>{user.email}'s Characters</h4>
             {
                 charPreviews ? charPreviews : <p style={{textAlign: "center"}}>No characters yet!</p>
             }
-            <div>
-                <Link to="/create-character"><button style={divStyle}>Add Character</button></Link>
+            <div style={{alignText: "center"}}>
+                <Link to="/create-character"><button>Add Character</button></Link>
             </div>
         </div>
     )
