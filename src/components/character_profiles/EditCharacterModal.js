@@ -50,7 +50,7 @@ const EditCharacterModal = (props) => {
         <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton/>
                 <Modal.Body>
-                        <CharacterForm character={character} heading="EditCharacter" handleChange={handleChange} handleSubmit={handleSubmit}/>
+                        <CharacterForm character={character} heading="Edit Character" handleChange={handleChange} handleSubmit={handleSubmit}/>
                 </Modal.Body>
             </Modal>
     )
