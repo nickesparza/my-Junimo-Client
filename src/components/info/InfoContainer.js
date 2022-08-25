@@ -27,26 +27,12 @@ export const InfoContainer = (props) => {
             getAllBlueprints()
                 .then(res => setRecipeList(res.data.blueprints))
                 .catch(err => console.log(err))
-        } else {
-            console.log(`something is weird:
-            RecipeId: ${recipeId}
-            MaterialId: ${materialId}
-            recipeListShow: ${recipeListShow}
-            material: ${material}
-            blueprint: ${blueprint}`)
         }
     }, [recipeListShow, materialId, recipeId])
 
-    console.log('this is the blueprint in infoContainer', blueprint)
-    console.log(`something is weird:
-            RecipeId: ${recipeId}
-            MaterialId: ${materialId}
-            recipeListShow: ${recipeListShow}
-            material: ${material}
-            blueprint: ${blueprint}`)
-
     const divStyle = {
         width: "100%",
+        height: "100%"
     }
 
     if (!material && !blueprint && !recipeList) {
@@ -76,7 +62,7 @@ export const InfoContainer = (props) => {
         )
     } else if (recipeListShow) {
         return (
-            <div className="ui-container" style={divStyle}>
+            <div className="ui-container" style={{maxHeight: "100%", overflowY: "scroll"}}>
             <RecipeList recipes={recipeList} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
             </div>
         )

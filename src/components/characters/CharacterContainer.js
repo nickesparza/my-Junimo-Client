@@ -30,7 +30,7 @@ const CharacterContainer = (props) => {
 
     const divStyle = {
         width: "100%",
-        height: "100%",
+        height: "100%"
     }
 
     return (

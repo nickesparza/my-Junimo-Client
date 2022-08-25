@@ -15,13 +15,14 @@ const UserHome = (props) => {
 
     const divStyle = {
         // border: "2px solid black",
-        padding: "10px"
+        padding: "10px",
+        height: "100%"
     }
 
     return (
         <Container fluid style={{height: "85%"}}>
-            <Row>
-                <Col md={3} style={divStyle}>
+            <Row style={{height: "100%"}}>
+                <Col lg={3} style={divStyle}>
                     <CharacterContainer
                         user={user}
                         charUpdated={charUpdated}
@@ -34,7 +35,7 @@ const UserHome = (props) => {
                 {
                     characterId
                     ?
-                    <Col md={5} style={divStyle}>
+                    <Col lg={5} style={divStyle}>
                         <ProfileContainer
                             user={user}
                             characterId={characterId}
@@ -52,7 +53,7 @@ const UserHome = (props) => {
                 {
                     characterId && materialId || recipeId || recipeListShow
                     ?
-                    <Col md={4} style={divStyle}>
+                    <Col lg={4} style={divStyle}>
                         <InfoContainer
                             user={user}
                             materialId={materialId}

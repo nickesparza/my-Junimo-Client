@@ -1,6 +1,9 @@
 
 const RecipePreview = (props) => {
     const {recipe, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const recipeImagePath = "images/recipes/" + recipe.recipe_image
+    // console.log(recipeImagePath)
+    // console.log(recipeImagePath)
     return (
         <div style={{margin: "2px"}}
         onClick={() => {
@@ -9,7 +12,7 @@ const RecipePreview = (props) => {
                 setRecipeListShow(false)
             }}
         >
-            {recipe.recipe_name}
+            <img src={recipeImagePath} alt={recipeImagePath}/>
         </div>
     )
 }
