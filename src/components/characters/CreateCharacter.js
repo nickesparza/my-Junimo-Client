@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import { createCharacter } from "../../api/characters"
+import { createInventory } from "../../api/inventories"
 import CharacterForm from "../shared/CharacterForm"
 
 const CreateCharacter = (props) => {
@@ -46,7 +47,15 @@ const CreateCharacter = (props) => {
         character.year = parseInt(character.year)
         console.log('info was submitted', character)
         createCharacter(user, character)
-            .then(res => navigate('/'))
+            .then(res =>{
+                const characterId = res.data.character.id
+                for (let i=1; i <= 80; i++) {
+                    createInventory(user, i, characterId)
+                        .then(res => console.log('this is the response from inventory creation', res.data))
+                        .catch(err => console.log(err))
+                }
+            })
+            .then(navigate('/'))
             .catch(err => console.log(err))
         
         }

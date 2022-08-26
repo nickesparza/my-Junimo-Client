@@ -9,7 +9,7 @@ import { getOneInventory } from "../../api/inventories"
 import { getAllMaterials } from "../../api/materials"
 
 export const Inventory = (props) => {
-    const {character, setMaterialId, setRecipeListShow, setRecipeId} = props
+    const {user, character, setMaterialId, setRecipeListShow, setRecipeId} = props
 
     const [materials, setMaterials] = useState(null)
     const [inventory, setInventory] = useState(null)
@@ -17,7 +17,9 @@ export const Inventory = (props) => {
 
     useEffect(() => {
         // this does nothing right now but will once inventory is a model we can retrieve
-        getOneInventory(character.id)
+        console.log('this is the character in inventory', character)
+        getOneInventory(user, character.id)
+            .catch(err => console.log(err))
         getAllMaterials()
             .then(res => {
                 console.log(res)
@@ -53,7 +55,7 @@ export const Inventory = (props) => {
                     </button>
                 </Col>
             </Row>
-            <div style={{display: "flex", flexWrap: "wrap", overflow: "scroll", height: "300px", overflow: "scroll"}}>
+            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", overflow: "scroll", height: "300px", overflow: "scroll"}}>
                 {materialPreviews}
             </div>
         </div>

@@ -65,6 +65,7 @@ export const ProfileContainer = (props) => {
             </Row>
             <Row>
                 <CharacterDetails
+                    user={user}
                     character={character}
                     setCharacter={setCharacter}
                     setMaterialId={setMaterialId}
