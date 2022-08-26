@@ -13,6 +13,7 @@ const CharacterForm = (props) => {
                         required
                         type='text'
                         name='name'
+                        maxLength={12}
                         value={character.name}
                         placeholder='Enter character name'
                         onChange={handleChange}
@@ -30,6 +31,7 @@ const CharacterForm = (props) => {
                     <Form.Control
                         required
                         name='farm_name'
+                        maxLength={12}
                         value={character.farm_name}
                         type='text'
                         placeholder='Enter farm name'
@@ -49,6 +51,7 @@ const CharacterForm = (props) => {
                     <Form.Label htmlFor='pet_name'>Pet Name</Form.Label>
                     <Form.Control
                         name='pet_name'
+                        maxLength={12}
                         value={character.pet_name}
                         type='text'
                         placeholder="Enter pet's name"
@@ -93,6 +96,7 @@ const CharacterForm = (props) => {
                     <Form.Label htmlFor='horse_name'>Horse Name</Form.Label>
                     <Form.Control
                         name='horse_name'
+                        maxLength={12}
                         value={character.horse_name}
                         type='text'
                         placeholder='Enter horse name'

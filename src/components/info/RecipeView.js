@@ -9,9 +9,13 @@ const RecipeView = (props) => {
 
     let ingredients
     ingredients = blueprint.map((ingredient, index) => {
+        const materialImagePath = "images/materials/" + ingredient.material.material_image
         return (
             <div>
-                <p key={index}>{ingredient.material.material_name}: {ingredient.amount_needed}</p>
+                <p key={index}>
+                    <img src={materialImagePath} style={{maxWidth: "30px"}}/>
+                    {ingredient.material.material_name}: {ingredient.amount_needed}
+                    </p>
             </div>
         )
     })
