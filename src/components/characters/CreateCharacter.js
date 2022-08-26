@@ -1,3 +1,4 @@
+// page for creating a new character
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Container } from "react-bootstrap"
@@ -17,9 +18,11 @@ const CreateCharacter = (props) => {
         love_interest: '',
         horse_name: '',
         total_g: 0,
-        year: 0
+        year: 1
     })
 
+    // this function handles changes in the form
+    // new information entered updates the corresponding key in state
     const handleChange = (e) => {
         setCharacter(prevCharacter => {
             let value = e.target.value

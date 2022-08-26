@@ -1,4 +1,7 @@
-
+// single recipe view component
+// shows recipe and ingredients required
+// will need a recipe_materials fetch in order to show quantities
+// also may need a inventory fetch for comparison?
 const RecipeView = (props) => {
     const {blueprint} = props
     console.log('this is the recipe in RecipeView', blueprint)

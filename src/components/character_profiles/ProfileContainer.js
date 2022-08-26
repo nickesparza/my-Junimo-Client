@@ -1,3 +1,6 @@
+// this is the main container for all profile information regarding a single character
+// fetches one character's details and displays them, along with an inventory for that character
+// inventory will either be created on character creation or a CRUD resource (minus delete)
 import { useEffect, useState } from "react"
 import { CharacterDetails } from "./CharacterDetails"
 import { Container, Row, Col, Button } from "react-bootstrap"
@@ -7,17 +10,20 @@ import { updateCharacter, deleteCharacter, getOneCharacter } from "../../api/cha
 
 
 export const ProfileContainer = (props) => {
+    // pass all state variables from UserHome to trigger rendering and refreshes
     const { user, characterId, setCharacterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
     
     const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
 
+    // because of how love interests and pet images are stored in the backend (as a two-letter shorthand)
+    // useEffect needs to set the data coming back to a useable format for the frontend
+    // fetches one character and then elongates both pet_image and love_interest to have a workable image path and a full name
     useEffect(() => {
         console.log('useEffect ran in the ProfileContainer')
         getOneCharacter(user, characterId)
             .then(res => {
-                let loveInterest = res.data.character.love_interest
                 switch(res.data.character.pet_image) {
                     case 'C1':
                         res.data.character.pet_image = "Cat_1.png"
@@ -90,18 +96,20 @@ export const ProfileContainer = (props) => {
         height: "100%"
     }
 
+    // this function calls deleteCharacter and then triggers a refresh in Character Container to remove that name from the list
+    // also closes all currently open info panes
     const removeCharacter = () => {
         deleteCharacter(user, character.id)
-            .then(setCharUpdated(prev => !prev))
             .then(() => {
                 setCharacterId(null)
                 setMaterialId(null)
                 setRecipeId(null)
                 setRecipeListShow(false)
             })
+            .then(setCharUpdated(prev => !prev))
             .catch(err => console.log(err))
     }
-
+    // if there's no character, don't render anything
     if (!character) {
         return null
     }
@@ -140,16 +148,15 @@ export const ProfileContainer = (props) => {
             </Row>
         </Container>
         <EditCharacterModal
-            // modal needs patient info to populate fields
+            // modal needs character info to populate fields
             character={character}
-            // send state of treatmentModalShow so the modal knows which form to render
             // needs user in order to validate in the backend update function
             user={user}
             // this sets the visibility of the modal when the relevant button is clicked
             show={editModalShow}
             // this is a function passed in from props that will run the patch route
             updateCharacter={updateCharacter}
-            // this updates the state to trigger another useEvent pull of data
+            // this updates the state to trigger another useEffect pull of data
             triggerRefresh={() => {
                 setUpdated(prev => !prev)
                 setCharUpdated(prev => !prev)

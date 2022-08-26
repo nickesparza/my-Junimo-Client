@@ -1,3 +1,5 @@
+// show all recipes from the fetch in InfoContainer
+// take recipes as props and map over them
 import RecipePreview from "./RecipePreview"
 
 const RecipeList = (props) => {

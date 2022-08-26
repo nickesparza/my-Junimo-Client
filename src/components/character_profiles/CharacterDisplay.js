@@ -1,3 +1,5 @@
+// this component takes the character info, processes it, and renders all the information
+// including name, farm name, year, horse/pet names, images, etc.
 import { Container, Row, Col } from "react-bootstrap"
 export const CharacterDisplay = (props) => {
     const character = props.character

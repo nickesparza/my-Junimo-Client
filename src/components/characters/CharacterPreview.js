@@ -1,4 +1,4 @@
-
+// this component shows an individual character name and sets state for a fetch in Profile Container
 export const CharacterPreview = (props) => {
     const {character, setCharacterId, setMaterialId, setRecipeId, setRecipeListShow} = props
 
@@ -13,11 +13,13 @@ export const CharacterPreview = (props) => {
         <div className="selector"
             style={divStyle}
             onClick={() => {
-                console.log('this is the character', character)
+                // on click:
+                // set materialId, recipeId, and recipeListShow to falsy values to remove the Info Container if it is currently displayed
+                // set characterId variable in UserHome, to trigger render of ProfileContainer
+                // console.log('this is the character', character)
                 setMaterialId(null)
                 setRecipeId(null)
                 setRecipeListShow(false)
-                // this is a temporary state mod to be deleted once backend is up and running
                 setCharacterId(character.id)
                 }}>
             <h5 style={{margin: "0"}}>{character.name}</h5>

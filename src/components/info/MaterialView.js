@@ -1,7 +1,7 @@
-
+// this component shows one material based on the fetch from InfoContainer
 
 const MaterialView = (props) => {
-    const { material, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { material } = props
     console.log('material in MaterialView', material)
     const materialImagePath = '/images/materials/' + material.material_image
     return (

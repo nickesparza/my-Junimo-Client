@@ -1,3 +1,5 @@
+// this works very similarly to CreateCharacter component
+// but passes current character's info to the form to auto-populate it
 import { useState } from "react"
 import { Modal } from "react-bootstrap"
 import CharacterForm from "../shared/CharacterForm"
