@@ -7,8 +7,10 @@ const MaterialView = (props) => {
     return (
         <div style={{margin:"5px", paddingBottom: "15%", textAlign: "center"}}>
             <h2>{material.material_name}</h2>
+            <div className="my-3" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
             <div className="ui-container" style={{display: "inline-block"}}>
-            <img src={materialImagePath} style={{width: "120px"}}/>
+            <img src={materialImagePath}/>
+            </div>
             </div>
             <div>{material.material_description}</div>
         </div>

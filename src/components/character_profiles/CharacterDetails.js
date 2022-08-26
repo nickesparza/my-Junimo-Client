@@ -2,7 +2,6 @@
 // character info and inventory are separate components that will be updated separately
 import { Inventory } from "./Inventory"
 import { CharacterDisplay } from "./CharacterDisplay"
-import { useEffect } from "react"
 
 export const CharacterDetails = (props) => {
     const {character, setMaterialId, setRecipeId, setRecipeListShow} = props

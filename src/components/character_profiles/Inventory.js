@@ -6,22 +6,35 @@ import { useEffect, useState } from "react"
 import { Row, Col } from 'react-bootstrap'
 import { MaterialPreview } from "./MaterialPreview"
 import { getOneInventory } from "../../api/inventories"
+import { getAllMaterials } from "../../api/materials"
 
 export const Inventory = (props) => {
     const {character, setMaterialId, setRecipeListShow, setRecipeId} = props
 
+    const [materials, setMaterials] = useState(null)
     const [inventory, setInventory] = useState(null)
     const [updated, setUpdated] = useState(false)
-    // this does nothing right now but will once inventory is a model we can retrieve
+
     useEffect(() => {
+        // this does nothing right now but will once inventory is a model we can retrieve
         getOneInventory(character.id)
+        getAllMaterials()
+            .then(res => {
+                console.log(res)
+                return res
+            })
+            .then(res => setMaterials(res.data.materials))
+            .then(console.log(materials))
+            .catch(err => console.log(err))
     }, [updated])
 
-    // material previews need to come from a getAllMaterials fetch that we may not need, we'll see
-    // let materialPreviews
-    // materialPreviews = character.inventory.map((material, index) => {
-    //     return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
-    // })
+    // material previews need to come from a getAllMaterials fetch
+    let materialPreviews
+    if (materials) {
+        materialPreviews = materials.map((material, index) => {
+            return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+        })
+    }
 
     return (
         <div className="ui-container m-3">
@@ -40,9 +53,8 @@ export const Inventory = (props) => {
                     </button>
                 </Col>
             </Row>
-            <div style={{display: "flex"}}>
-                {/* {materialPreviews} */}
-                <MaterialPreview setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+            <div style={{display: "flex", flexWrap: "wrap", overflow: "scroll", height: "300px", overflow: "scroll"}}>
+                {materialPreviews}
             </div>
         </div>
     )

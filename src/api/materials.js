@@ -4,6 +4,10 @@ import axios from 'axios'
 // get all materials
 export const getAllMaterials = () => {
     console.log('getAllMaterials route was hit')
+    return axios({
+		url: apiUrl + `/materials`,
+		method: 'GET',
+	})
 }
 
 // get one material

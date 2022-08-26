@@ -2,16 +2,17 @@
 // but materials ARE hooked up, why have I not done this yet...?
 export const MaterialPreview = (props) => {
     const {material, setMaterialId, setRecipeListShow, setRecipeId} = props
+    const materialImagePath = "/images/materials/" + material.material_image
     return (
         <div
-            style={{border: "4px solid rgb(229,120,61)", display: "inline-block", padding: "10px"}}
+            style={{padding: "10px"}}
             onClick={() => {
                 setRecipeId(null)
                 setRecipeListShow(false)
-                setMaterialId(1)
+                setMaterialId(material.id)
             }}
         >
-            This is a material.
+            <img className="selector" src={materialImagePath}/>
         </div>
     )
 }

@@ -9,6 +9,7 @@ import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
 import { getAllBlueprints, getOneBlueprint } from "../../api/blueprints"
 import { getOneMaterial } from "../../api/materials"
+import { getOneBlueprintMaterials } from "../../api/blueprint_materials"
 
 export const InfoContainer = (props) => {
     // extract all UserHome variables from props
@@ -34,8 +35,9 @@ export const InfoContainer = (props) => {
         // do the same for recipe Id
         if (recipeId) {
             console.log('this is a blueprint fetch')
-            getOneBlueprint(recipeId)
-                .then(res => setBlueprint(res.data.blueprint))
+            getOneBlueprintMaterials(recipeId)
+                .then(res => setBlueprint(res.data.recipe_materials))
+                .then(console.log(blueprint))
                 .catch(err => console.log(err))
         } else {
             setBlueprint(null)
