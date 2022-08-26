@@ -3,7 +3,75 @@
 import { Container, Row, Col } from "react-bootstrap"
 export const CharacterDisplay = (props) => {
     const character = props.character
-    const petImagePath = "/images/petsprites/" + props.character.pet_image
+    // because of how love interests and pet images are stored in the backend (as a two-letter shorthand)
+    // CharacterDisplay needs to set the data coming back to a useable format for the frontend
+    // elongates both pet_image and love_interest to have a workable image path and a full name
+    let petUrlEndpoint
+    let loveInterestName
+    switch(character.pet_image) {
+        case 'C1':
+            petUrlEndpoint = "Cat_1.png"
+            break
+        case 'C2':
+            petUrlEndpoint = "Cat_2.png"
+            break
+        case 'C3':
+            petUrlEndpoint = "Cat_3.png"
+            break
+        case 'D1':
+            petUrlEndpoint = "Dog_1.png"
+            break
+        case 'D2':
+            petUrlEndpoint = "Dog_2.png"
+            break
+        case 'D3':
+            petUrlEndpoint = "Dog_3.png"
+            break
+    }
+    switch(character.love_interest) {
+        case 'AL':
+            loveInterestName = "Alex"
+            break
+        case 'EL':
+            loveInterestName = "Elliot"
+            break
+        case 'HA':
+            loveInterestName = "Harvey"
+            break
+        case 'SA':
+            loveInterestName = "Sam"
+            break
+        case 'SE':
+            loveInterestName = "Sebastian"
+            break
+        case 'SH':
+            loveInterestName = "Shane"
+            break
+        case 'AB':
+            loveInterestName = "Abigail"
+            break
+        case 'EM':
+            loveInterestName = "Emily"
+            break
+        case 'HL':
+            loveInterestName = "Haley"
+            break
+        case 'LE':
+            loveInterestName = "Leah"
+            break
+        case 'MA':
+            loveInterestName = "Maru"
+            break
+        case 'PE':
+            loveInterestName = "Penny"
+            break
+        case 'KR':
+            loveInterestName = "Krobus"
+            break
+    }
+
+    const petImagePath = "/images/petsprites/" + petUrlEndpoint
+
     return (
         <Container>
             <Row style={{alignItems: "center"}}>

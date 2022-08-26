@@ -1,12 +1,16 @@
 // this works very similarly to CreateCharacter component
 // but passes current character's info to the form to auto-populate it
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Modal } from "react-bootstrap"
 import CharacterForm from "../shared/CharacterForm"
 
 const EditCharacterModal = (props) => {
     const {show, handleClose, updateCharacter, user, triggerRefresh} = props
     const [character, setCharacter] = useState(props.character)
+
+    useEffect(() => {
+        setCharacter(props.character)
+    }, [props.character])
 
     const handleChange = (e) => {
         setCharacter(prevCharacter => {
