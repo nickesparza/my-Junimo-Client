@@ -4,7 +4,7 @@ const CharacterForm = (props) => {
     const { character, heading, handleChange, handleSubmit } = props
 
     return (
-        <Container className='justify-content-center my-3' style={{maxWidth: "75%"}}>
+        <Container className='justify-content-center my-3'>
             <h2>{heading}</h2>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>

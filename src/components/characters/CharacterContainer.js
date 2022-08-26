@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { CharacterPreview } from "./CharacterPreview"
 import { useEffect, useState } from "react"
 import { getAllCharacters } from "../../api/characters"
+import { Button } from "react-bootstrap"
 
 const CharacterContainer = (props) => {
     // these props will show up a lot, it's how the conditional rendering of character details and recipe/material/etc details are displayed
@@ -50,8 +51,8 @@ const CharacterContainer = (props) => {
             {
                 charPreviews ? charPreviews : <p style={{textAlign: "center"}}>No characters yet!</p>
             }
-            <div style={{alignText: "center"}}>
-                <Link to="/create-character"><button>Add Character</button></Link>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <Link to="/create-character"><Button variant="success">Add Character</Button></Link>
             </div>
         </div>
     )

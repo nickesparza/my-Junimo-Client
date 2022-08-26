@@ -52,7 +52,7 @@ const CreateCharacter = (props) => {
         }
 
     return (
-        <Container className="ui-container my-5">
+        <Container className="ui-container my-3">
             <CharacterForm
                 character={character}
                 handleChange={handleChange}

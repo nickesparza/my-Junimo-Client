@@ -76,7 +76,10 @@ export const CharacterDisplay = (props) => {
         <Container>
             <Row style={{alignItems: "center"}}>
                 <Col>
-                    <div style={{textAlign: "center"}}>Proprieter of {character.farm_name}</div>
+                    <div style={{textAlign: "center"}}>
+                        <img src="images/Standard_Farm_Map_Icon.png"/>
+                        <div>{character.farm_name}</div>
+                    </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
@@ -93,13 +96,22 @@ export const CharacterDisplay = (props) => {
             </Row>
             <Row>
                 <Col>
-                    <div style={{textAlign: "center"}}>Love Interest: {character.love_interest}</div>
+                    <div style={{textAlign: "center"}}>
+                        <img src="images/Marriage_Icon.png"/>
+                        {loveInterestName}
+                    </div>
                 </Col>
                 <Col>
-                    <div style={{textAlign: "center"}}>Year {character.year}</div>
+                    <div style={{textAlign: "center"}}>
+                        <img src="images/30px-Time_Icon.png"/>
+                        Year {character.year}
+                    </div>
                 </Col>
                 <Col>
-                    <div style={{textAlign: "center"}}>{character.total_g}g</div>
+                    <div style={{textAlign: "center"}}>
+                        <img src="images/Gold.png" style={{width: "30px"}}/>
+                        {character.total_g}g
+                    </div>
                 </Col>
             </Row>
         </Container>

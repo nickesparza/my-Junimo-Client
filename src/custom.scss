@@ -5,19 +5,16 @@
 //     "info": rgb(43, 202, 43),
 // );
 
-$theme-colors: (
-    "info": tomato,
-    "danger": teal,
-    "primary": red
-);
-
-.btn-primary {
-    background-color: green;
-    border: 1px solid green;
-    border-radius: 0%;
+.btn {
+    border-radius: 0;
+    border: 4px solid rgb(229,120,61);
 }
 
-.btn-primary:hover {
-    background-color: rgb(10, 141, 10);
-    border: 1px solid green
+// .btn-primary:hover {
+//     background-color: rgb(24, 168, 24);
+//     border: 4px solid rgb(229,120,61);
+// }
+
+.btn:hover {
+    border: 4px solid rgb(229,120,61);
 }
