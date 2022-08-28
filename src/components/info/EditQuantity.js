@@ -1,11 +1,15 @@
-import { useState } from 'react'
-import EditQuantityForm from './EditQuantityForm'
+import { useState, useEffect } from 'react'
+import { Form, Button } from 'react-bootstrap'
+// import EditQuantityForm from './EditQuantityForm'
 import { updateSingleInventory } from '../../api/inventories'
 
 const EditQuantity = (props) => {
     const { user, characterId, setInvUpdated } = props
     const [inventory, setInventory] = useState(props.inventory)
-    console.log('this is the inventory in EditInventory', inventory)
+
+    useEffect(() => {
+        console.log('useEffect ran in EditQuantity!!!!!!!!!!!!!!!!!!', inventory)
+    }, [props.inventory])
     
     const handleChange = (e) => {
         setInventory(prevInventory => {
@@ -33,7 +37,20 @@ const EditQuantity = (props) => {
 
     return (
         <div>
-            <EditQuantityForm inventory={inventory} handleChange={handleChange} handleSubmit={handleSubmit}/>
+            {/* <EditQuantityForm inventory={inventory} handleChange={handleChange} handleSubmit={handleSubmit}/> */}
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label htmlFor='amount'>Quantity</Form.Label>
+                    <Form.Control
+                        type='number'
+                        name='amount'
+                        value={inventory.amount}
+                        placeholder='Enter amount'
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+                <Button className='m-2' variant='primary' size='sm' type='submit'>Edit Amount</Button>
+            </Form>
         </div>
     )
 }

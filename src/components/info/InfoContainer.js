@@ -64,8 +64,7 @@ export const InfoContainer = (props) => {
                     setRecipeId(null)
                     setRecipeListShow(false)}}
                 />
-                    <MaterialView material={material}/>
-                    <EditQuantity user={user} inventory={material} characterId={characterId} setInvUpdated={setInvUpdated}/>
+                    <MaterialView user={user} inventory={material} characterId={characterId} setInvUpdated={setInvUpdated}/>
             </div>
         )
     } else if (blueprint) {

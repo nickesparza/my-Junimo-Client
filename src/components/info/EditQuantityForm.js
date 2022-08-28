@@ -1,7 +1,7 @@
-import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 const EditQuantityForm = (props) => {
+    console.log('this is the inventory in the EditInventoryForm', props.inventory)
     const { inventory, handleChange, handleSubmit } = props
     return (
         <div>
