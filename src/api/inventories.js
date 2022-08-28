@@ -44,13 +44,6 @@ export const createInventory = (user, materialId, characterId) => {
 
 export const updateSingleInventory = (user, materialId, characterId, inventoryId, newAmount) => {
     console.log(`editOneInventory route was hit for inventory id ${inventoryId} belonging to character id ${characterId}`)
-    console.log({
-        inventory: {
-            material_id: materialId,
-            character_id: characterId,
-            amount: newAmount
-        }
-    })
     return axios({
 		url: apiUrl + `/inventory/edit/${inventoryId}/${characterId}`,
 		method: 'PATCH',

@@ -4,12 +4,12 @@ import { Inventory } from "./Inventory"
 import { CharacterDisplay } from "./CharacterDisplay"
 
 export const CharacterDetails = (props) => {
-    const {user, character, setMaterialId, setRecipeId, setRecipeListShow} = props
+    const {user, character, invUpdated, setMaterialId, setRecipeId, setRecipeListShow} = props
 
     return (
         <div>
             <CharacterDisplay character={character} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
-            <Inventory user={user} character={character} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+            <Inventory user={user} character={character} invUpdated={invUpdated} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
         </div>
     )
 }

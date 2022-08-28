@@ -1,38 +1,11 @@
 import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import { updateSingleInventory } from '../../api/inventories'
 
 const EditQuantityForm = (props) => {
-    const { user, characterId, setInvUpdated } = props
-    const [inventory, setInventory] = useState(props.inventory)
-    console.log('this is the inventory in EditInventory', inventory)
-    const handleChange = (e) => {
-        setInventory(prevInventory => {
-            let value = e.target.value
-            const name = e.target.name
-
-            const updatedInventory = {
-                [name]: parseInt(value)
-            }
-
-            return {
-                ...prevInventory,
-                ...updatedInventory
-            }
-        })
-    }
-
-    const handleSubmit = (e) => {
-        console.log('this is the amount we submit', parseInt(inventory.amount))
-        e.preventDefault()
-        updateSingleInventory(user, inventory.material.id, characterId, inventory.id, inventory.amount)
-            .then(() => setInvUpdated(inventory.id))
-            .catch(err => console.log(err))
-    }
-
+    const { inventory, handleChange, handleSubmit } = props
     return (
         <div>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label htmlFor='amount'>Quantity</Form.Label>
                     <Form.Control
@@ -43,7 +16,7 @@ const EditQuantityForm = (props) => {
                         onChange={handleChange}
                     />
                 </Form.Group>
-                <Button className='m-2' variant='primary' size='sm' type='submit' onClick={handleSubmit}>Edit Amount</Button>
+                <Button className='m-2' variant='primary' size='sm' type='submit'>Edit Amount</Button>
             </Form>
         </div>
     )

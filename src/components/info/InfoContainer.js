@@ -6,7 +6,7 @@ import MaterialView from "./MaterialView"
 import CloseButton from "../shared/CloseButton"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
-import EditQuantityForm from "./EditQuantityForm"
+import EditQuantity from "./EditQuantity"
 import { getAllBlueprints } from "../../api/blueprints"
 // import { getOneMaterial } from "../../api/materials"
 import { getOneBlueprintMaterials } from "../../api/blueprint_materials"
@@ -15,7 +15,7 @@ import { getSingleInventory } from "../../api/inventories"
 export const InfoContainer = (props) => {
     // extract all UserHome variables from props
     // user will be used once updateInventory is implemented
-    const {user, characterId, materialId, recipeId, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow, setInvUpdated} = props
+    const {user, characterId, materialId, recipeId, invUpdated, setMaterialId, setRecipeId, recipeListShow, setRecipeListShow, setInvUpdated} = props
     const [material, setMaterial] = useState(null)
     const [recipeList, setRecipeList] = useState(null)
     const [blueprint, setBlueprint] = useState(null)
@@ -50,7 +50,7 @@ export const InfoContainer = (props) => {
                 .then(res => setRecipeList(res.data.blueprints))
                 .catch(err => console.log(err))
         }
-    }, [recipeListShow, materialId, recipeId])
+    }, [recipeListShow, invUpdated, materialId, recipeId])
 
     const divStyle = {
         width: "100%",
@@ -65,7 +65,7 @@ export const InfoContainer = (props) => {
                     setRecipeListShow(false)}}
                 />
                     <MaterialView material={material}/>
-                    <EditQuantityForm user={user} inventory={material} characterId={characterId} setInvUpdated={setInvUpdated}/>
+                    <EditQuantity user={user} inventory={material} characterId={characterId} setInvUpdated={setInvUpdated}/>
             </div>
         )
     } else if (blueprint) {

@@ -18,11 +18,15 @@ const UserHome = (props) => {
     // this is also a conditional rendering variable, but for showing all recipes (since there are no ids required for that call)
     const [recipeListShow, setRecipeListShow] = useState(false)
     // this will (hopefully) be what triggers a refresh of the inventory in ProfileContainer after a material amount is updated in InfoContainer
-    const [invUpdated, setInvUpdated] = useState(null)
+    const [invUpdated, setInvUpdated] = useState(false)
     // this refreshes the character container if the character details are updated in the Profile Container
     // this only really matters when character name is updated, so it is immediately reflected in the larger character list
     const [charUpdated, setCharUpdated] = useState(false)
     const user = props.user
+
+    useEffect(() => {
+        console.log('invUpdated was changed. New value:', invUpdated)
+    }, [invUpdated])
 
     const divStyle = {
         // border: "2px solid black",
@@ -76,6 +80,7 @@ const UserHome = (props) => {
                             user={user}
                             characterId={characterId}
                             materialId={materialId}
+                            invUpdated={invUpdated}
                             setMaterialId={setMaterialId}
                             recipeId={recipeId}
                             setRecipeId={setRecipeId}
