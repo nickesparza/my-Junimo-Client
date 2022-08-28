@@ -5,11 +5,11 @@
 import { useEffect, useState } from "react"
 import { Row, Col } from 'react-bootstrap'
 import { MaterialPreview } from "./MaterialPreview"
-import { getOneInventory } from "../../api/inventories"
+import { getCharacterInventory, getSingleInventory } from "../../api/inventories"
 import { getAllMaterials } from "../../api/materials"
 
 export const Inventory = (props) => {
-    const {user, character, setMaterialId, setRecipeListShow, setRecipeId} = props
+    const {user, character, invUpdated, setMaterialId, setRecipeListShow, setRecipeId} = props
 
     const [materials, setMaterials] = useState(null)
     const [inventory, setInventory] = useState(null)
@@ -18,18 +18,23 @@ export const Inventory = (props) => {
     useEffect(() => {
         // this does nothing right now but will once inventory is a model we can retrieve
         console.log('this is the character in inventory', character)
-        getOneInventory(user, character.id)
+        getCharacterInventory(user, character.id)
             .then(res => setInventory(res.data.inventory))
             .catch(err => console.log(err))
-        getAllMaterials()
-            .then(res => {
-                console.log(res)
-                return res
-            })
-            .then(res => setMaterials(res.data.materials))
-            .then(console.log(materials))
-            .catch(err => console.log(err))
-    }, [updated])
+        // getAllMaterials()
+        //     .then(res => {
+        //         console.log(res)
+        //         return res
+        //     })
+        //     .then(res => setMaterials(res.data.materials))
+        //     .then(console.log('these are the materials in inventory', materials))
+        //     .catch(err => console.log(err))
+    }, [updated, invUpdated])
+
+    // useEffect(() => {
+    //     getSingleInventory(user, character.id, invUpdated)
+    //         .then(res)
+    // }, [invUpdated])
 
     // material previews need to come from a getAllMaterials fetch
     let materialPreviews

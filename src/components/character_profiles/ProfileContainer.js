@@ -11,7 +11,7 @@ import { updateCharacter, deleteCharacter, getOneCharacter } from "../../api/cha
 
 export const ProfileContainer = (props) => {
     // pass all state variables from UserHome to trigger rendering and refreshes
-    const { user, characterId, setCharacterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
+    const { user, characterId, invUpdated, setCharacterId, setCharUpdated, setMaterialId, setRecipeId, setRecipeListShow } = props
     
     const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
@@ -67,6 +67,7 @@ export const ProfileContainer = (props) => {
                 <CharacterDetails
                     user={user}
                     character={character}
+                    invUpdated={invUpdated}
                     setCharacter={setCharacter}
                     setMaterialId={setMaterialId}
                     setRecipeId={setRecipeId}

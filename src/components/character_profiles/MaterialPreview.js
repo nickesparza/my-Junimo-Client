@@ -9,7 +9,7 @@ export const MaterialPreview = (props) => {
             onClick={() => {
                 setRecipeId(null)
                 setRecipeListShow(false)
-                setMaterialId(inventory.material.id)
+                setMaterialId(inventory.id)
             }}
         >
             <img title={inventory.material.material_name} className="selector" src={materialImagePath}/>
