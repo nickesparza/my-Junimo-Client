@@ -77,18 +77,18 @@ export const CharacterDisplay = (props) => {
             <Row style={{alignItems: "center"}}>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img src="images/Standard_Farm_Map_Icon.png"/>
+                        <img title={character.farm_name} src="images/Standard_Farm_Map_Icon.png"/>
                         <div>{character.farm_name}</div>
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img src="/images/petsprites/Horse.png"/>
+                        <img title="Horse!" src="/images/petsprites/Horse.png"/>
                         <p>{character.horse_name}</p>
                     </div>
                 </Col>
                 <Col>
-                    <div style={{textAlign: "center"}}>
+                    <div title={character.pet_type} style={{textAlign: "center"}}>
                         <img src={petImagePath}/>
                         <p>{character.pet_name}</p>
                     </div>
@@ -97,19 +97,19 @@ export const CharacterDisplay = (props) => {
             <Row>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img src="images/Marriage_Icon.png"/>
+                        <img title="Love Interest" src="images/Marriage_Icon.png"/>
                         {loveInterestName}
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img src="images/30px-Time_Icon.png"/>
+                        <img title="Current Year" src="images/30px-Time_Icon.png"/>
                         Year {character.year}
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img src="images/Gold.png" style={{width: "30px"}}/>
+                        <img title="Current Funds" src="images/Gold.png" style={{width: "30px"}}/>
                         {character.total_g}g
                     </div>
                 </Col>

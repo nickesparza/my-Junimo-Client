@@ -19,6 +19,7 @@ export const Inventory = (props) => {
         // this does nothing right now but will once inventory is a model we can retrieve
         console.log('this is the character in inventory', character)
         getOneInventory(user, character.id)
+            .then(res => setInventory(res.data.inventory))
             .catch(err => console.log(err))
         getAllMaterials()
             .then(res => {
@@ -32,9 +33,9 @@ export const Inventory = (props) => {
 
     // material previews need to come from a getAllMaterials fetch
     let materialPreviews
-    if (materials) {
-        materialPreviews = materials.map((material, index) => {
-            return <MaterialPreview key={index} material={material} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
+    if (inventory) {
+        materialPreviews = inventory.map((inventory, index) => {
+            return <MaterialPreview key={index} inventory={inventory} setMaterialId={setMaterialId} setRecipeId={setRecipeId} setRecipeListShow={setRecipeListShow}/>
         })
     }
 
