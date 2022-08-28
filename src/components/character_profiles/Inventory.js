@@ -17,7 +17,7 @@ export const Inventory = (props) => {
         getCharacterInventory(user, character.id)
             .then(res => {
                 res.data.inventory = res.data.inventory.sort((a, b) => {
-                    return a.id - b.id
+                    return a.material.id - b.material.id
                 })
                 return res
             })
@@ -31,7 +31,7 @@ export const Inventory = (props) => {
         //     .then(res => setMaterials(res.data.materials))
         //     .then(console.log('these are the materials in inventory', materials))
         //     .catch(err => console.log(err))
-    }, [invUpdated])
+    }, [character, invUpdated])
 
     // material previews need to come from a getAllMaterials fetch
     let materialPreviews
