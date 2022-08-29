@@ -1,7 +1,7 @@
 {
   "name": "my-junimo-client",
   "version": "0.1.0",
-  "homepage": "https://nickesparza.github.io/my-Junimo-Client/",
+  "homepage": "https://nickesparza.github.io/my-Junimo-Client",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
