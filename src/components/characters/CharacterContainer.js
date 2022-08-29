@@ -36,7 +36,6 @@ const CharacterContainer = (props) => {
                         setRecipeListShow={setRecipeListShow}
                         />
         })
-        console.log('these are the character previews', charPreviews)
     }
 
     const divStyle = {
