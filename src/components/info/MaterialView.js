@@ -1,5 +1,4 @@
 // this component shows one material based on the fetch from InfoContainer
-import { useEffect } from "react"
 import EditQuantity from "./EditQuantity"
 const MaterialView = (props) => {
     const { user, inventory, characterId, setInvUpdated } = props
@@ -16,7 +15,7 @@ const MaterialView = (props) => {
                 <h2>{inventory.material.material_name}</h2>
                 <div className="my-3" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                 <div className="ui-container" style={{display: "inline-block"}}>
-                <img src={materialImagePath}/>
+                <img src={materialImagePath} alt={inventory.material.material_name}/>
                 </div>
                 </div>
                 <div>{inventory.material.material_description}</div>

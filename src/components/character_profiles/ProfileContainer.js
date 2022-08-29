@@ -23,6 +23,7 @@ export const ProfileContainer = (props) => {
             .then(res => setCharacter(res.data.character))
             .then(console.log('this is the character', character))
             .catch(err => console.log(err))
+    // eslint-disable-next-line
     }, [characterId, updated])
 
     const divStyle = {

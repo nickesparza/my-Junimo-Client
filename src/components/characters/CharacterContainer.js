@@ -15,16 +15,12 @@ const CharacterContainer = (props) => {
         console.log('useEffect has run in CharacterContainer')
         // get all characters belonging to a user
         getAllCharacters(user)
-            .then(res => {
-                console.log('this is the result of the getAllCharacters fetch', res.data.characters)
-                return res
-            })
             .then(res => setCharacters(res.data.characters))
             .catch(err => console.log(err))
-        console.log('this is the character list in charactercontainer', characters)
     // only re-run if a character has been updated (to get their new name, if needed)
+    // eslint-disable-next-line
     }, [charUpdated])
-    console.log('this is the character list once useEffect has run', characters)
+
     // getAllCharacters returns an array of characters
     // map through this array to return a preview component for each character
     // this is what the user clicks on to view the full details of that character

@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import {Button, ButtonGroup} from 'react-bootstrap'
 
 import { signOut } from '../../api/auth'
-import messages from '../shared/AutoDismissAlert/messages'
+// import messages from '../shared/AutoDismissAlert/messages'
 
 const SignOut = (props) => {
-	const { msgAlert, clearUser, user } = props
+	const { clearUser, user } = props
     console.log(props)
 
     const navigate = useNavigate()

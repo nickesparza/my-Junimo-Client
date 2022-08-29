@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react"
 import { Row, Col } from 'react-bootstrap'
 import { MaterialPreview } from "./MaterialPreview"
-import { getCharacterInventory, getSingleInventory } from "../../api/inventories"
+import { getCharacterInventory } from "../../api/inventories"
 
 export const Inventory = (props) => {
     const {user, character, invUpdated, setMaterialId, setRecipeListShow, setRecipeId} = props
@@ -31,6 +31,7 @@ export const Inventory = (props) => {
         //     .then(res => setMaterials(res.data.materials))
         //     .then(console.log('these are the materials in inventory', materials))
         //     .catch(err => console.log(err))
+    // eslint-disable-next-line
     }, [character, invUpdated])
 
     // material previews need to come from a getAllMaterials fetch
@@ -58,7 +59,7 @@ export const Inventory = (props) => {
                     </button>
                 </Col>
             </Row>
-            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", overflow: "scroll", height: "300px", overflow: "scroll"}}>
+            <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", height: "300px", overflow: "scroll"}}>
                 {materialPreviews}
             </div>
         </div>

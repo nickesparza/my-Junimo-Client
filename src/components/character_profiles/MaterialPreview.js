@@ -12,7 +12,7 @@ export const MaterialPreview = (props) => {
                 setMaterialId(inventory.id)
             }}
         >
-            <img title={inventory.material.material_name} className="selector" src={materialImagePath}/>
+            <img title={inventory.material.material_name} alt={inventory.material.material_name} className="selector" src={materialImagePath}/>
             <div style={{textAlign: "center"}}>{inventory.amount}</div>
         </div>
     )

@@ -25,6 +25,7 @@ const UserHome = (props) => {
     const user = props.user
 
     useEffect(() => {
+        console.log('UserHome was refreshed')
         console.log('invUpdated was changed. New value:', invUpdated)
     }, [invUpdated, charUpdated])
 
@@ -73,7 +74,7 @@ const UserHome = (props) => {
                 {/* show the Info Container, which will fetch conditionally depending on which Id or show variable is held in state in this component */}
                 {/* otherwise, show nothing */}
                 {
-                    characterId && materialId || recipeId || recipeListShow
+                    characterId && (materialId || recipeId || recipeListShow)
                     ?
                     <Col lg={4} style={divStyle}>
                         <InfoContainer

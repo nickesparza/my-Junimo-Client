@@ -25,6 +25,7 @@ const EditQuantity = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log('this is the target when clicking submit', e.target.value)
         console.log('this is the amount we submit', parseInt(inventory.amount))
         updateSingleInventory(user, inventory.material.id, characterId, inventory.id, inventoryToUpdate.amount)
             .then(() => setInvUpdated(prev => !prev))

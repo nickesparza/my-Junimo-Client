@@ -27,6 +27,8 @@ export const CharacterDisplay = (props) => {
         case 'D3':
             petUrlEndpoint = "Dog_3.png"
             break
+        default:
+            petUrlEndpoint = "Cat_1.png"
     }
     switch(character.love_interest) {
         case 'AL':
@@ -68,6 +70,8 @@ export const CharacterDisplay = (props) => {
         case 'KR':
             loveInterestName = "Krobus"
             break
+        default:
+            loveInterestName = "None"
     }
 
     const petImagePath = "/images/petsprites/" + petUrlEndpoint
@@ -77,19 +81,19 @@ export const CharacterDisplay = (props) => {
             <Row style={{alignItems: "center"}}>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img title={character.farm_name} src="images/Standard_Farm_Map_Icon.png"/>
+                        <img title={character.farm_name} alt="" src="images/Standard_Farm_Map_Icon.png"/>
                         <div>{character.farm_name}</div>
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img title="Horse!" src="/images/petsprites/Horse.png"/>
+                        <img title="Horse!" alt="" src="/images/petsprites/Horse.png"/>
                         <p>{character.horse_name}</p>
                     </div>
                 </Col>
                 <Col>
                     <div title={character.pet_type} style={{textAlign: "center"}}>
-                        <img src={petImagePath}/>
+                        <img src={petImagePath} alt="The pet you chose"/>
                         <p>{character.pet_name}</p>
                     </div>
                 </Col>
@@ -97,19 +101,19 @@ export const CharacterDisplay = (props) => {
             <Row>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img title="Love Interest" src="images/Marriage_Icon.png"/>
+                        <img title="Love Interest" alt="" src="images/Marriage_Icon.png"/>
                         {loveInterestName}
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img title="Current Year" src="images/30px-Time_Icon.png"/>
+                        <img title="Current Year" alt="" src="images/30px-Time_Icon.png"/>
                         Year {character.year}
                     </div>
                 </Col>
                 <Col>
                     <div style={{textAlign: "center"}}>
-                        <img title="Current Funds" src="images/Gold.png" style={{width: "30px"}}/>
+                        <img title="Current Funds" alt="" src="images/Gold.png" style={{width: "30px"}}/>
                         {character.total_g}g
                     </div>
                 </Col>

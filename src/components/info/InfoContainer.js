@@ -6,7 +6,6 @@ import MaterialView from "./MaterialView"
 import CloseButton from "../shared/CloseButton"
 import RecipeList from "./RecipeList"
 import RecipeView from "./RecipeView"
-import EditQuantity from "./EditQuantity"
 import { getAllBlueprints } from "../../api/blueprints"
 // import { getOneMaterial } from "../../api/materials"
 import { getOneBlueprintMaterials } from "../../api/blueprint_materials"
@@ -50,6 +49,7 @@ export const InfoContainer = (props) => {
                 .then(res => setRecipeList(res.data.blueprints))
                 .catch(err => console.log(err))
         }
+    // eslint-disable-next-line
     }, [recipeListShow, invUpdated, materialId, recipeId])
 
     const divStyle = {
