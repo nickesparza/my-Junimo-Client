@@ -13,8 +13,9 @@ const SignOut = (props) => {
 
     const onSignOut = () => {
 		signOut(user)
+            .finally(() => clearUser())
 			.finally(() => navigate('/'))
-			.finally(() => clearUser())
+            .catch(err => console.log(err))
     }
 
     const onCancel = () => {
