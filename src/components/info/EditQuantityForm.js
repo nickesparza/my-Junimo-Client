@@ -3,6 +3,8 @@ import { Form, Button } from 'react-bootstrap'
 const EditQuantityForm = (props) => {
     const { inventoryToUpdate, handleChange, handleSubmit } = props
     console.log('this is the inventory to update in the form', inventoryToUpdate)
+    console.log('this is the amount going into the form', inventoryToUpdate.amount)
+
     return (
         <div>
             <Form onSubmit={handleSubmit}>
@@ -12,6 +14,7 @@ const EditQuantityForm = (props) => {
                         type='number'
                         name='amount'
                         defaultValue={inventoryToUpdate.amount}
+                        key={inventoryToUpdate.amount}
                         placeholder='Enter amount'
                         onChange={handleChange}
                     />

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import EditQuantityForm from './EditQuantityForm'
 import { updateSingleInventory } from '../../api/inventories'
 
@@ -6,6 +6,11 @@ const EditQuantity = (props) => {
     const { user, inventory, characterId, setInvUpdated } = props
     const [inventoryToUpdate, setInventoryToUpdate] = useState(inventory)
     console.log('this is the inventory in EditQuantity', inventory)
+
+    useEffect(() => {
+        console.log('useEffect ran in EditQuantity')
+        setInventoryToUpdate(inventory)
+    }, [inventory])
     
     const handleChange = (e) => {
         setInventoryToUpdate(prevInventory => {
@@ -25,7 +30,6 @@ const EditQuantity = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('this is the target when clicking submit', e.target.value)
         console.log('this is the amount we submit', parseInt(inventory.amount))
         updateSingleInventory(user, inventory.material.id, characterId, inventory.id, inventoryToUpdate.amount)
             .then(() => setInvUpdated(prev => !prev))
