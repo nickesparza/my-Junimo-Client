@@ -13,8 +13,7 @@ const EditQuantityForm = (props) => {
                     <Form.Control
                         type='number'
                         name='amount'
-                        defaultValue={inventoryToUpdate.amount}
-                        key={inventoryToUpdate.amount}
+                        value={inventoryToUpdate.amount}
                         placeholder='Enter amount'
                         onChange={handleChange}
                     />
