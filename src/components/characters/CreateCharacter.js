@@ -51,7 +51,7 @@ const CreateCharacter = (props) => {
                 const characterId = res.data.character.id
                 for (let i=1; i <= 80; i++) {
                     createInventory(user, i, characterId)
-                        .then(res => console.log('this is the response from inventory creation', res.data))
+                        // .then(res => console.log('this is the response from inventory creation', res.data))
                         .catch(err => console.log(err))
                 }
             })

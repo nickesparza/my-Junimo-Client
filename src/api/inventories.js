@@ -27,7 +27,7 @@ export const getSingleInventory = (user, characterId, inventoryId) => {
 
 // create inventory
 export const createInventory = (user, materialId, characterId) => {
-    console.log(`createInventory route was hit for character with id ${characterId}, for material with id ${materialId}`)
+    // console.log(`createInventory route was hit for character with id ${characterId}, for material with id ${materialId}`)
     return axios({
 		url: apiUrl + `/inventory/create/${characterId}`,
 		method: 'POST',

@@ -17,6 +17,7 @@ const CharacterContainer = (props) => {
         getAllCharacters(user)
             .then(res => setCharacters(res.data.characters))
             .catch(err => console.log(err))
+        console.log('this is the character list in charactercontainer', characters)
     // only re-run if a character has been updated (to get their new name, if needed)
     }, [charUpdated])
 
@@ -49,7 +50,7 @@ const CharacterContainer = (props) => {
         <div className="ui-container" style={divStyle}>
             <h4>{user.email}'s Characters</h4>
             {
-                charPreviews ? charPreviews : <p style={{textAlign: "center"}}>No characters yet!</p>
+                characters.length > 0 ? charPreviews : <p style={{textAlign: "center"}}>No characters yet!</p>
             }
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Link to="/create-character"><Button variant="success">Add Character</Button></Link>

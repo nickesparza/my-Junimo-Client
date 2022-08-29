@@ -105,6 +105,8 @@ const CharacterForm = (props) => {
                     <Form.Label htmlFor='total_g'>Total Money</Form.Label>
                     <Form.Control
                         name='total_g'
+                        min={0}
+                        max={999999}
                         value={character.total_g}
                         type='number'
                         placeholder='Enter total g'
