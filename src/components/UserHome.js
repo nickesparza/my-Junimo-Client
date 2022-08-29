@@ -26,7 +26,7 @@ const UserHome = (props) => {
 
     useEffect(() => {
         console.log('invUpdated was changed. New value:', invUpdated)
-    }, [invUpdated])
+    }, [invUpdated, charUpdated])
 
     const divStyle = {
         // border: "2px solid black",

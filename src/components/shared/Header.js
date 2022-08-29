@@ -55,7 +55,7 @@ const Header = ({ user }) => (
                 <Link to='/' style={linkStyle}>
                     <img
                     alt=""
-                    src="https://preview.redd.it/1zyhrw4ygub11.png?auto=webp&s=908a41542c3ded0e00a7084c763835bbbe27536b"
+                    src="images/Junimo.gif"
                     width="50"
                     height="50"
                     className="d-inline-block align-top"
