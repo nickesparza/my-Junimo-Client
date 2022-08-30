@@ -3,12 +3,19 @@
 # Summary: 
 Finally, an app that makes resource and crafting management easy in Stardew Valley! This app allows you to manage the inventory of your character(s) and easily see if your inventory meets the requirements for crafting items (and larger projects!) inside Stardew Valley.
 
-# Link to API
+# Link to API Repo
 https://github.com/alysvolatile/my-junimo-api
+
+# Links to Deployed
+Deployed Client: https://my-junimo-helper.herokuapp.com/
+Deployed API: https://my-junimo-api.herokuapp.com/
 
 # Technologies Used
 Django/SQL Backend (Python)
 React Frontend
+
+# Requirements
+You will need to run `npm install` to acquire the necessary dependencies for this project. Data is stored and seeded via scripts found in the backend repo above.
 
 # Approach
 The app is structured as a three branches underneath one main UserHome component. CharacterContainer, ProfileContainer, and InfoContainer are all children of this primary component, and each one renders conditionally based on the status of multiple state hooks in UserHome. These state hooks trigger various data retrieval actions on the backend, allowing the same components to render different character details, as well as requiring only one component hierarchy for displaying all blueprints, one blueprint, or one character inventory resource.
