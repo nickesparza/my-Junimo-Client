@@ -10,6 +10,11 @@ https://github.com/alysvolatile/my-junimo-api
 Django/SQL Backend (Python)
 React Frontend
 
+# Approach
+The app is structured as a three branches underneath one main UserHome component. CharacterContainer, ProfileContainer, and InfoContainer are all children of this primary component, and each one renders conditionally based on the status of multiple state hooks in UserHome. These state hooks trigger various data retrieval actions on the backend, allowing the same components to render different character details, as well as requiring only one component hierarchy for displaying all blueprints, one blueprint, or one character inventory resource.
+
+When an action occurs on one "branch" of the UI (say, updating the quantity of a material in the character's inventory), the HTTP request also sets a new state in the UserHome Component. That state variable is loaded into the dependency array of all relevant components, prompting a useEffect trigger that updates the information across the application. It is designed as a truly one-screen application experience.
+
 # Team:
 Nick Esparza, Alys Cooper
 
