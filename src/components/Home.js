@@ -15,7 +15,7 @@ const Home = (props) => {
             <Container fluid className="mt-3">
                 <div className="ui-container"><h2>Welcome to MyJunimo!</h2></div>
             </Container>
-                <UserHome user={user}/>
+            <UserHome user={user}/>
             </>
         )
     } else {

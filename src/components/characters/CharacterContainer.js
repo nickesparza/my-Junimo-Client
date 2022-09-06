@@ -1,7 +1,7 @@
 // this is the parent component for the list of all a user's characters
 import { Link } from "react-router-dom"
 import { CharacterPreview } from "./CharacterPreview"
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { getAllCharacters } from "../../api/characters"
 import { Button } from "react-bootstrap"
 
@@ -11,10 +11,16 @@ const CharacterContainer = (props) => {
     // this component fetches all characters for a given user, which is held in state
     const [characters, setCharacters] = useState([])
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         console.log('useEffect has run in CharacterContainer')
         // get all characters belonging to a user
         getAllCharacters(user)
+            .then(res => {
+                res.data.characters = res.data.characters.sort((a, b) => {
+                    return a.id - b.id
+                })
+                return res
+            })
             .then(res => setCharacters(res.data.characters))
             .catch(err => console.log(err))
     // only re-run if a character has been updated (to get their new name, if needed)

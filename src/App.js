@@ -75,7 +75,6 @@ const App = () => {
                             <RequireAuth user={user}>
                                 <CreateCharacter user={user}/>
                             </RequireAuth>
-
                         }   
                     />
 				</Routes>
